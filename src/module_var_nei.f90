@@ -9,7 +9,7 @@ module var_nei
 ! Emissions Inventories Variables
   integer :: zlev       ! Layer of emission (1 to 8) 8 lower 1 upper
   integer ::radm   ! number of RADM2 classes
-  integer :: nh,hh
+  integer :: nh,hh,NRADM
   parameter(radm=31,nh=24)
   integer :: NDIMS
   parameter (NDIMS=6)
@@ -39,7 +39,7 @@ module var_nei
   character (len=19) :: current_date,mecha
 
   ! Domain Variables
-  common /domain/ zlev,dx,dy,Title
+  common /domain/ NRADM,zlev,dx,dy,Title,sdim
   common /date/ hh,id_grid,current_date,cday,mecha,cname,Times
   common /wrf/ julyr,julday,mapproj,iswater,islake,isice,isurban,isoilwater,&
   cenlat,cenlon,trulat1, trulat2,moadcenlat,stdlon,pollat,pollon,num_land_cat,&

@@ -16,7 +16,7 @@ implicit none
   integer, parameter:: JX=160
   integer, parameter:: KX=8
   integer, parameter:: IHOUR=12
-  integer :: NRADM,HR,ii,i,j,k,n
+  integer :: HR,ii,i,j,k,n
   character(len=17) :: nfile
   nfile="wrfem_12to24z_d01"
   if(hh.eq.00) then
