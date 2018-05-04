@@ -8,9 +8,8 @@
 module var_nei
 ! Emissions Inventories Variables
   integer :: zlev       ! Layer of emission (1 to 8) 8 lower 1 upper
-  integer ::radm   ! number of RADM2 classes
   integer :: nh,hh,NRADM
-  parameter(radm=31,nh=24)
+  parameter(nh=24,radm=42)
   integer :: NDIMS
   parameter (NDIMS=6)
   real,allocatable:: EMISS3D(:,:,:,:,:) ! emissions by nx,ny,level,nh,radm
@@ -22,7 +21,8 @@ module var_nei
   real :: trulat1, trulat2,moadcenlat,stdlon,pollat,pollon
   real :: gmt,num_land_cat
   character(len=3) :: cday
-  CHARACTER (len= 9), allocatable :: ENAME(:)
+  CHARACTER (len= 9), allocatable :: ENAME1(:)
+  CHARACTER (len=10), allocatable :: ENAME(:)
   character(len=19)::mminlu,map_proj_char
   character(len=19):: iTime
   character(len=38):: Title
@@ -30,12 +30,15 @@ module var_nei
   character (len=19),dimension(NDIMS) ::sdim=(/"Time               ",&
   & "DateStrLen         ","west_east          ","south_north        ",&
   &"bottom_top         ","emissions_zdim_stag"/)
-  character(len= 16),dimension(radm):: cname=(/'SO2  ','NO   ','Aldehydes  ',&
-  'HCHO ','Acetic Acid ','NH3  ','Butanes','Pentanes','Alkane','Ethane',&
-  'Carbon Monoxide','Alkanes','Terminal Alkenes','Alkenes   ','Toluene  ',&
-  'Xylene  ','Acetone','Cresol','Isoprene','Methane','PM25I','PM25J',&
-  'SulfatesI','SulfatesJ','Nitrates ','NitratesJ','OrganicI','OrganicJ',&
-  'Elemental C I ','Elemental C J','PM_10'/)
+  character(len= 19),dimension(radm):: cname=(/'Benzaldehyde','Methanol',&
+  'Propylene','Ethanol','Methacrolein','Sulfur Dioxide','Nitrogen Oxide','Acetaldehyde',&
+  'Formaldehyde','Formic Acid','Acetylene','Cresol','Ammonia','Propane',&
+  'lumped alkanes C>3','Methyl ethyl ket','Methyl vinylket','Phenol','Glyoxal',&
+  'Ethane','Carbon Monoxide','Ethene','Lumped alkenes C>3',&
+  'Methyl glyoxal','Toluene','m-/o-/p-xylenes','Acetone','Benzene',&
+  'Isoprene','Methane','PM25I','PM25J',&
+  'SulfatesI','SulfatesJ','Nitrates I','Nitrates J','OrganicI','OrganicJ',&
+  'Elemental C I ','Elemental C J','PM_10','Nitrogen Dioxide'/)
   character (len=19) :: current_date,mecha
 
   ! Domain Variables

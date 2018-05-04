@@ -13,7 +13,7 @@ convert.exe: $(objetcs)
 %.mod:%.90 %.o
 	$(FC) -c -o $@ $(FCLIB) $^
 
-%.o: %.f90 $(DEPS)
+%.o: %.f90 
 	$(FC) -c -o $@ $(FCLIB) $^
 
 clean:
