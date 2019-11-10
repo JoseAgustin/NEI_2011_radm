@@ -13,6 +13,9 @@ RM_LIST =	*.log
 default:
 	( $(CD) src   ; $(MAKE)  );
 	( $(RM) convert.exe ; $(LN) src/convert.exe . ) ;
+pgi:
+	( $(CD) src   ; $(MAKE) pgi );
+	( $(RM) convert.exe ; $(LN) src/convert.exe . ) ;
 
 code:
 	( $(CD) src   ; $(MAKE) code "FC= ifort" );
