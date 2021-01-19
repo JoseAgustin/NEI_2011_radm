@@ -11,15 +11,15 @@ RM_LIST =	*.log
 #	Targets for supported architectures
 
 default:
-	( $(CD) src   ; $(MAKE)  );
-	( $(RM) convert.exe ; $(LN) src/convert.exe . ) ;
+	( $(CD) source   ; $(MAKE)  );
+	( $(RM) convert.exe ; $(LN) source/convert.exe . ) ;
 pgi:
-	( $(CD) src   ; $(MAKE) pgi );
-	( $(RM) convert.exe ; $(LN) src/convert.exe . ) ;
+	( $(CD) source   ; $(MAKE) pgi );
+	( $(RM) convert.exe ; $(LN) source/convert.exe . ) ;
 
 code:
-	( $(CD) src   ; $(MAKE) code "FC= ifort" );
+	( $(CD) source   ; $(MAKE) code "FC= ifort" );
 clean:
-	( $(CD) src   ; $(MAKE) clean  );
+	( $(CD) source   ; $(MAKE) clean  );
 	$(RM) $(RM_LIST)
 
