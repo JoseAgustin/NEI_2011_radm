@@ -3,10 +3,9 @@
 AT_INIT([NEI_2011_radm])
 AT_BANNER(["Testing functions"])
 
-AT_SETUP([Functions cuenta mes emisfact])
-AT_TESTED([test1 test2 test9])
+AT_SETUP([Functions check])
+AT_TESTED([test1 ])
 AT_CLEANUP
 
 AT_COPYRIGHT(
 [Copyright (C) Universidad Nacional Autonoma de Mexico])
-

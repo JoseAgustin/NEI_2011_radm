@@ -1,13 +1,13 @@
 !
 !   module_var_nei.f90
-!   
+!
 !
 !   Created by Agustin Garcia on 25/04/18.
 !   Copyright 2018 Universidad Nacional Autonoma de Mexico. All rights reserved.
 !
 module var_nei
 ! Emissions Inventories Variables
-  integer :: zlev       ! Emission Layer 
+  integer :: zlev       ! Emission Layer
   integer :: hh,NRADM
   integer,parameter :: nh=24
   integer,parameter :: radm=32
@@ -30,12 +30,15 @@ module var_nei
   character (len=19),dimension(NDIMS) ::sdim=(/"Time               ",&
   & "DateStrLen         ","west_east          ","south_north        ",&
   &"bottom_top         ","emissions_zdim_stag"/)
-  character(len= 19),dimension(radm):: cname=(/'Sulfur Dioxide','Nitrogen oxide',&
-   'Aldehydes  ','HCHO ','Acetic Acid ','Ammonia ','Butanes','Pentanes','Alkane',&
-   'Ethane','Carbon Monoxide','Alkanes','Terminal Alkenes','Alkenes   ','Toluene  ',&
-   'Xylene  ','Acetone','Cresol','Isoprene','Methane','PM25I','PM25J',&
-   'SulfatesI','SulfatesJ','Nitrates ','NitratesJ','OrganicI','OrganicJ',&
-   'Elemental C I ','Elemental C J','PM_10','Nitrogen Dioxide'/)
+  character(len= 19),dimension(radm):: cname=(/'Sulfur Dioxide  ',&
+  'Nitrogen oxide  ','Aldehydes       ','HCHO            ','Acetic Acid     ',&
+  'Ammonia         ','Butanes         ','Pentanes        ','Alkane          ',&
+  'Ethane          ','Carbon Monoxide ','Alkanes         ','Terminal Alkenes',&
+  'Alkenes         ','Toluene         ','Xylene          ','Acetone         ',&
+  'Cresol          ','Isoprene        ','Methane         ','PM25I           ',&
+  'PM25J           ','SulfatesI       ','SulfatesJ       ','Nitrates        ',&
+  'NitratesJ       ','OrganicI        ','OrganicJ        ','Elemental Carb I',&
+  'Elemental Carb J','PM_10           ','Nitrogen Dioxide'/)
   character (len=19) :: current_date,mecha
 
   ! Domain Variables

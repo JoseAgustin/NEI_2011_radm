@@ -33,25 +33,25 @@ $(srcdir)/package.m4: $(top_srcdir)/configure.ac
 	echo '  [@PACKAGE_URL@])'; \
 	}>'$(srcdir)/package.m4'
 
-     
+
 EXTRA_DIST = testsuite.at $(srcdir)/package.m4 $(TESTSUITE)
 TESTSUITE = $(srcdir)/testsuite
-     
+
 check-local: atconfig  $(TESTSUITE)
 	$(SHELL) '$(TESTSUITE)' $(TESTSUITEFLAGS)
 
 maintainer-clean-local:
 	rm -rf aclocal.m4 configure Makefile.in autotools m4
-     
+
 installcheck-local: atconfig  $(TESTSUITE)
 	$(SHELL) '$(TESTSUITE)' AUTOTEST_PATH='$(bindir)' \
 	$(TESTSUITEFLAGS)
-     
+
 clean-local:
 	test ! -f '$(TESTSUITE)' || \
 	$(SHELL) '$(TESTSUITE)' --clean
-     
-AUTOM4TE = $(SHELL) $(srcdir)/build-aux/missing --run autom4te
+
+AUTOM4TE = $(SHELL) $(top_srcdir)/autoconf/missing --run autom4te
 AUTOTEST = $(AUTOM4TE) --language=autotest
 $(TESTSUITE): $(srcdir)/testsuite.at $(srcdir)/package.m4
 	$(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at
@@ -59,4 +59,3 @@ $(TESTSUITE): $(srcdir)/testsuite.at $(srcdir)/package.m4
 
 .PHONY: $(EXTRA_DIST)
 $(EXTRA_DIST):
-
