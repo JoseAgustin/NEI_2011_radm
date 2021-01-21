@@ -3,6 +3,6 @@
 *.f
 .DS_Store
 .tmpfile
-wrf*
+*.log
 *.exe
 data
