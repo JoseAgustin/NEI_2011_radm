@@ -85,8 +85,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-TESTS = test1$(EXEEXT)
-check_PROGRAMS = test1$(EXEEXT)
+TESTS = test1$(EXEEXT) test2$(EXEEXT)
+check_PROGRAMS = test1$(EXEEXT) test2$(EXEEXT)
 subdir = testsuite
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -101,6 +101,10 @@ am_test1_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
 	t_check.$(OBJEXT)
 test1_OBJECTS = $(am_test1_OBJECTS)
 test1_LDADD = $(LDADD)
+am_test2_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
+	test_nml.$(OBJEXT)
+test2_OBJECTS = $(am_test2_OBJECTS)
+test2_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -127,8 +131,8 @@ AM_V_FCLD = $(am__v_FCLD_$(V))
 am__v_FCLD_ = $(am__v_FCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_FCLD_0 = @echo "  FCLD    " $@;
 am__v_FCLD_1 = 
-SOURCES = $(test1_SOURCES)
-DIST_SOURCES = $(test1_SOURCES)
+SOURCES = $(test1_SOURCES) $(test2_SOURCES)
+DIST_SOURCES = $(test1_SOURCES) $(test2_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -365,7 +369,7 @@ AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AUTOCONF = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing autoconf
 AUTOHEADER = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing autoheader
-AUTOM4TE = $(SHELL) $(srcdir)/build-aux/missing --run autom4te
+AUTOM4TE = $(SHELL) $(top_srcdir)/autoconf/missing --run autom4te
 AUTOMAKE = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing automake-1.16
 AWK = awk
 CC = gcc
@@ -463,6 +467,7 @@ top_builddir = ..
 top_srcdir = ..
 AM_FCFLAGS = $(NC_INC) -I$(top_srcdir) $(NC_LIB)
 test1_SOURCES = $(top_builddir)/module_var_nei.F90 t_check.F90
+test2_SOURCES = $(top_builddir)/module_var_nei.F90 test_nml.F90
 
 # Additional files to be cleaned with 'make clean'
 CLEANFILES = *.o *.mod package.m4 testsuite
@@ -518,6 +523,10 @@ $(top_builddir)/module_var_nei.$(OBJEXT):  \
 test1$(EXEEXT): $(test1_OBJECTS) $(test1_DEPENDENCIES) $(EXTRA_test1_DEPENDENCIES) 
 	@rm -f test1$(EXEEXT)
 	$(AM_V_FCLD)$(FCLINK) $(test1_OBJECTS) $(test1_LDADD) $(LIBS)
+
+test2$(EXEEXT): $(test2_OBJECTS) $(test2_DEPENDENCIES) $(EXTRA_test2_DEPENDENCIES) 
+	@rm -f test2$(EXEEXT)
+	$(AM_V_FCLD)$(FCLINK) $(test2_OBJECTS) $(test2_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -728,6 +737,13 @@ recheck: all $(check_PROGRAMS)
 test1.log: test1$(EXEEXT)
 	@p='test1$(EXEEXT)'; \
 	b='test1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test2.log: test2$(EXEEXT)
+	@p='test2$(EXEEXT)'; \
+	b='test2'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \

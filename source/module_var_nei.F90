@@ -64,4 +64,14 @@ subroutine check(status)
       stop 2
     end if
 end subroutine check
+
+subroutine lee_nml(IX,JX,KX)
+  integer,intent(OUT)::IX,JX,KX
+  integer :: nmlFileID=0
+  ! namelist-group (binds variables together, for namelist I/O).
+  namelist/dom_dims/IX,JX,KX
+  open(newunit=nmlFileID, file="domain.nml")
+  read(nmlFileID, nml=dom_dims)
+  close(nmlFileID)
+end subroutine lee_nml
 end module var_nei
