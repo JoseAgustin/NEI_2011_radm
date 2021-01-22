@@ -1,0 +1,105 @@
+\hypertarget{module__var__nei_8_f90}{}\doxysection{source/module\+\_\+var\+\_\+nei.F90 File Reference}
+\label{module__var__nei_8_f90}\index{source/module\_var\_nei.F90@{source/module\_var\_nei.F90}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacevar__nei}{var\+\_\+nei}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacevar__nei_a8353b81a81bb78f61871fba83f627d4f}{var\+\_\+nei\+::check}} (status)
+\begin{DoxyCompactList}\small\item\em Verifies no error in netcdf function call. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacevar__nei_a5fe713a0ee5e7edd4b32a51a33594231}{var\+\_\+nei\+::lee\+\_\+nml}} (IX, JX, KX)
+\begin{DoxyCompactList}\small\item\em Reads dimensions from namelist file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a5117ea5c547d9e25bdaa90b582225443}{var\+\_\+nei\+::zlev}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a43a56edbc3672c32ebace4fd169be394}{var\+\_\+nei\+::hh}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a2ef5f1b04fa83ab0a14e66ffb0a5e058}{var\+\_\+nei\+::nradm}}
+\item 
+integer, parameter \mbox{\hyperlink{namespacevar__nei_a975ecb8997fa1fd76407f787a09b08a7}{var\+\_\+nei\+::nh}} =24
+\item 
+integer, parameter \mbox{\hyperlink{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}{var\+\_\+nei\+::radm}} =32
+\item 
+integer, parameter \mbox{\hyperlink{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}{var\+\_\+nei\+::ndims}} =6
+\item 
+real, dimension(\+:,\+:,\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a4b84a220c2eb1d3bc021504a03b66110}{var\+\_\+nei\+::emiss3d}}
+\item 
+real, dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a809c181280b386f11e8d0b00c1a72b89}{var\+\_\+nei\+::dlat}}
+\item 
+real, dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_adec17c7cb898b8eec926189545553856}{var\+\_\+nei\+::dlon}}
+\item 
+real, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a2a9d74ef27ef35da3cfc882c8357c7ac}{var\+\_\+nei\+::xlon}}
+\item 
+real, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ade63ffda52ab9b9488641fab4905a02e}{var\+\_\+nei\+::xlat}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a98535a88d2cf23fcb8d37e8cc43a08e5}{var\+\_\+nei\+::grid\+\_\+id}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_ad2e01d0c02a4c2f74f6386de1578e4c2}{var\+\_\+nei\+::julyr}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a8a8770ff12b4e52d5450d3231c2844e4}{var\+\_\+nei\+::julday}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a38c7e8153ab0ea76cf89c3dd6c65445d}{var\+\_\+nei\+::mapproj}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a9af3f8b5aa8683e7379916f999f18ae1}{var\+\_\+nei\+::iswater}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a09b80403e667c229f024f72580a3035d}{var\+\_\+nei\+::islake}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_adb2d7db1372b6b1ebb1f00a231a7f87d}{var\+\_\+nei\+::isice}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a93d4e35eb70360b3ebde6731c92260e3}{var\+\_\+nei\+::isurban}}
+\item 
+integer \mbox{\hyperlink{namespacevar__nei_a6741b96a3eacfe299faf7bb6bfd7d7a3}{var\+\_\+nei\+::isoilwater}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a1a402085788df8b55abe39bf1e48fa4f}{var\+\_\+nei\+::cenlat}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_afe984e57938b30348903f7f2ac74db79}{var\+\_\+nei\+::cenlon}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a319bbc18dfec899c95723ad0d551a6ef}{var\+\_\+nei\+::dx}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_ad85e30a2569417304d2768495dd9ab53}{var\+\_\+nei\+::dy}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a416a76e9d15a9c5ab71bf35fae4c1d0b}{var\+\_\+nei\+::trulat1}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a00978e4557e6ed2bbc13f0d18814748b}{var\+\_\+nei\+::trulat2}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a338f31f3a76b4e9ffdaa5b02b3ae9e6e}{var\+\_\+nei\+::moadcenlat}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a0367bed8cb2c98709f1e668eb3ec5e48}{var\+\_\+nei\+::stdlon}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_afadb7693d50fbbc75d0b9f9ba9c51eb1}{var\+\_\+nei\+::pollat}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_aaf4b67486f23af1e4e9c90fe803f2b68}{var\+\_\+nei\+::pollon}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a70c1137eb5673bd43647181815afaf4d}{var\+\_\+nei\+::gmt}}
+\item 
+real \mbox{\hyperlink{namespacevar__nei_a3c4cdd97258d3da0e3c9d7d2b75f684e}{var\+\_\+nei\+::num\+\_\+land\+\_\+cat}}
+\item 
+character(len=3) \mbox{\hyperlink{namespacevar__nei_af6fb77ce1de73b45b3930eb5c9103af3}{var\+\_\+nei\+::cday}}
+\item 
+character(len=9), dimension(\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ae00c801ba22412551de48c990b24f3fa}{var\+\_\+nei\+::ename1}}
+\item 
+character(len=10), dimension(\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ac5d582f5e49823cf542a314b49880ff1}{var\+\_\+nei\+::ename}}
+\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_a5038883212dd6aec7b31e75169112d3f}{var\+\_\+nei\+::mminlu}}
+\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_af68fb08c3df8c5160d493360e9e3c90a}{var\+\_\+nei\+::map\+\_\+proj\+\_\+char}}
+\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_ae469d1e363b120c98362d2815b7cb82f}{var\+\_\+nei\+::itime}}
+\item 
+character(len=38) \mbox{\hyperlink{namespacevar__nei_a3cb5fb7b59d8b25ebb4de07468c596be}{var\+\_\+nei\+::title}}
+\item 
+character(len=19), dimension(1, 1) \mbox{\hyperlink{namespacevar__nei_ad887da7be27ee1ec4275175b6666763d}{var\+\_\+nei\+::times}}
+\item 
+character(len=19), dimension(ndims) \mbox{\hyperlink{namespacevar__nei_a99b4c3f10c0f0cf5a72f39cd68d3189e}{var\+\_\+nei\+::sdim}} =(/\char`\"{}Time \char`\"{}, \char`\"{}Date\+Str\+Len \char`\"{},\char`\"{}west\+\_\+east \char`\"{},\char`\"{}south\+\_\+north \char`\"{},\char`\"{}bottom\+\_\+top \char`\"{},\char`\"{}emissions\+\_\+zdim\+\_\+stag\char`\"{}/)
+\item 
+character(len=19), dimension(radm) \mbox{\hyperlink{namespacevar__nei_a049938150fa6e1cd2e33cdfea46ce76c}{var\+\_\+nei\+::cname}} =(/\textquotesingle{}Sulfur Dioxide \textquotesingle{}, \textquotesingle{}Nitrogen oxide \textquotesingle{},\textquotesingle{}Aldehydes \textquotesingle{},\textquotesingle{}H\+C\+HO \textquotesingle{},\textquotesingle{}Acetic Acid \textquotesingle{}, \textquotesingle{}Ammonia \textquotesingle{},\textquotesingle{}Butanes \textquotesingle{},\textquotesingle{}Pentanes \textquotesingle{},\textquotesingle{}Alkane \textquotesingle{}, \textquotesingle{}Ethane \textquotesingle{},\textquotesingle{}Carbon Monoxide \textquotesingle{},\textquotesingle{}Alkanes \textquotesingle{},\textquotesingle{}Terminal Alkenes\textquotesingle{}, \textquotesingle{}Alkenes \textquotesingle{},\textquotesingle{}Toluene \textquotesingle{},\textquotesingle{}Xylene \textquotesingle{},\textquotesingle{}Acetone \textquotesingle{}, \textquotesingle{}Cresol \textquotesingle{},\textquotesingle{}Isoprene \textquotesingle{},\textquotesingle{}Methane \textquotesingle{},\textquotesingle{}P\+M25I \textquotesingle{}, \textquotesingle{}P\+M25J \textquotesingle{},\textquotesingle{}SulfatesI \textquotesingle{},\textquotesingle{}SulfatesJ \textquotesingle{},\textquotesingle{}Nitrates \textquotesingle{}, \textquotesingle{}NitratesJ \textquotesingle{},\textquotesingle{}OrganicI \textquotesingle{},\textquotesingle{}OrganicJ \textquotesingle{},\textquotesingle{}Elemental Carb I\textquotesingle{}, \textquotesingle{}Elemental Carb J\textquotesingle{},\textquotesingle{}P\+M\+\_\+10 \textquotesingle{},\textquotesingle{}Nitrogen Dioxide\textquotesingle{}/)
+\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_a406c338d243198f8e99ebf5f430de3c9}{var\+\_\+nei\+::current\+\_\+date}}
+\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_ab24fb026e07deedb53e584bb393e80c5}{var\+\_\+nei\+::mecha}}
+\end{DoxyCompactItemize}
