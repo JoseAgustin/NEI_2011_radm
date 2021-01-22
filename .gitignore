@@ -5,4 +5,5 @@
 .tmpfile
 *.log
 *.exe
+testsuite/test*
 data
