@@ -1,18 +1,23 @@
 !
 !   guarda.f90
-!   
+!>  @brief Stores emissions in radm categories in netcdf format
+!>  @author Jose Agustin Garcia Reynoso
+!>  @date 26/04/2018
+!>  @version  1.0
+!>  @copyright Universidad Nacional Autonoma de Mexico
+!>
 !
-!   Created by Agustin Garcia on 26/04/18.
-!   Copyright 2018 Universidad Nacional Autonoma de Mexico. All rights reserved.
-!
-!   Lee archivos binarios del NEI2011 y genera archivo Netcdf de emisiones
-!     26 abril 2018 para RADM
-!     28 abril 2018 para MOZART
 !****************************************************************************
 !  Proposito:
 !            Guarda los datos del inventario interpolado para el
 !            mecanismo RADM2 en formato netcdf
 !***************************************************************************
+!                            _                         _     _
+!   __ _ _   _  __ _ _ __ __| | __ _     ___ _ __ ___ (_)___(_) ___  _ __
+!  / _` | | | |/ _` | '__/ _` |/ _` |   / _ \ '_ ` _ \| / __| |/ _ \| '_ \
+! | (_| | |_| | (_| | | | (_| | (_| |  |  __/ | | | | | \__ \ | (_) | | | |
+!  \__, |\__,_|\__,_|_|  \__,_|\__,_|___\___|_| |_| |_|_|___/_|\___/|_| |_|
+!  |___/                           |_____|
 subroutine guarda_emisiones
   use netcdf
   use var_nei
@@ -26,6 +31,7 @@ subroutine guarda_emisiones
   integer :: dimids2(2),dimids3(3),dimids4(4)
   real,ALLOCATABLE :: ea(:,:,:,:)
   character (len=20) :: FILE_NAME
+  character(len=19),dimension(1,1)::Times
   character(8)  :: date
   character(10) :: time
   character(19) :: hoy
@@ -38,7 +44,7 @@ subroutine guarda_emisiones
   IF(hh.EQ. 0) THEN
   print *,'PERIODO 1'
   FILE_NAME='wrfchemi_00z_d01'         !******
-  TITLE="NEI_2011 Emissions for 0 to 11z"
+  TITLE="NEI_2011 Emissions for 0 to 11z V4.0"
   PERIODO=1
   iit= 0
   eit=11
@@ -46,7 +52,7 @@ subroutine guarda_emisiones
   else
   Print *,'PERIODO 2'
   FILE_NAME='wrfchemi_12z_d01'         !******
-  TITLE="NEI_2011 Emissions for 12 to 23z"
+  TITLE="NEI_2011 Emissions for 12 to 23z V4.0"
   PERIODO=2
   iit=12
   eit=23
@@ -75,7 +81,6 @@ subroutine guarda_emisiones
   !Attributos Globales NF90_GLOBAL
   call check( nf90_put_att(ncid, NF90_GLOBAL, "TITLE",TITLE))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "START_DATE",current_date))
-  call check( nf90_put_att(ncid, NF90_GLOBAL, "DAY ",cday))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "SIMULATION_START_DATE",current_date))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "WEST-EAST_GRID_DIMENSION",dim(3)))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "SOUTH-NORTH_GRID_DIMENSION",dim(4)))
@@ -93,8 +98,9 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, NF90_GLOBAL, "GMT",gmt))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "JULYR",julyr))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "JULDAY",julday))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "DAY ",cday))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "MAP_PROJ",mapproj))
-  call check( nf90_put_att(ncid, NF90_GLOBAL, "MAP_PROJ_CHAR",map_proj_char))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "MAP_PROJ_CHAR",cmap_proj_char))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "MMINLU",mminlu))
   call check( nf90_put_att(ncid, nf90_global, "ISWATER",iswater))
   call check( nf90_put_att(ncid, nf90_global, "ISLAKE",islake))
@@ -125,9 +131,9 @@ subroutine guarda_emisiones
 
   do i=1,nradm+1
   if(i.lt.29 .or.i.gt.41) then
-  call crea_attr(ncid,4,dimids4,ename(i),cname(i),id_var(i))
+  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"g km^-2 s^-1",id_var(i))
   else
-  call crea_attr2(ncid,4,dimids4,ename(i),cname(i),id_var(i))
+  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"ug m-2 s-1",id_var(i))
   end if
   end do
   !
@@ -135,7 +141,7 @@ subroutine guarda_emisiones
   call check( nf90_enddef(ncid) )
   !    Inicia loop de tiempo
   tiempo: do it=iit,eit
-    write(6,'(A,x,I3)')'TIEMPO: ', it
+    write(6,'(3x,A8,I2)')'TIEMPO: ', it
     gases: do ikk=1,radm
       ea=0.0
       if(ikk.eq.1) then
@@ -180,54 +186,47 @@ endif
   call check( nf90_close(ncid) )
   if(periodo.eq.2) deallocate(ea,EMISS3D,ename,xlat,xlon)
 contains
-
-!  CCCC RRRR  EEEEE  AAA      AAA  TTTTT TTTTT RRRR
-! CC    R  RR E     A   A    A   A   T     T   R  RR
-! C     RRRR  EEEE  AAAAA    AAAAA   T     T   RRRR
-! CC    R  R  E     A   A    A   A   T     T   R  R
-!  CCCC R   R EEEEE A   A____A   A   T     T   R   R
-subroutine crea_attr(ncid,idm,dimids,svar,cname,id_var)
-  implicit none
-  integer , INTENT(IN) ::ncid,idm
-  integer, INTENT(out) :: id_var
-  integer, INTENT(IN),dimension(idm):: dimids
-  character(len=*), INTENT(IN)::svar,cname
-  character(len=50) :: cvar
-  cvar=trim(cname)//" emission rate"
-
-  call check( nf90_def_var(ncid, svar, NF90_REAL, dimids,id_var ) )
-  ! Assign  attributes
-  call check( nf90_put_att(ncid, id_var, "FieldType", 104 ) )
-  call check( nf90_put_att(ncid, id_var, "MemoryOrder", "XYZ") )
-  call check( nf90_put_att(ncid, id_var, "description", Cvar) )
-  call check( nf90_put_att(ncid, id_var, "units", "mol km^-2 hr^-1"))
-  call check( nf90_put_att(ncid, id_var, "stagger", "Z") )
-  call check( nf90_put_att(ncid, id_var, "coordinates", "XLONG XLAT") )
-  ! print *,"Entro a Attributos de variable",dimids,id,jd
-  return
-end subroutine crea_attr
-!  CCCC RRRR  EEEEE  AAA      AAA  TTTTT TTTTT RRRR   222
-! CC    R  RR E     A   A    A   A   T     T   R  RR 2   2
-! C     RRRR  EEEE  AAAAA    AAAAA   T     T   RRRR     2
-! CC    R  R  E     A   A    A   A   T     T   R  R   2
-!  CCCC R   R EEEEE A   A____A   A   T     T   R   R 22222
-subroutine crea_attr2(ncid,idm,dimids,svar,cname,id_var)
-  implicit none
-  integer, INTENT(IN) ::ncid,idm
-  integer, INTENT(out) :: id_var
-  integer,INTENT(IN) ,dimension(idm):: dimids
-  character(len=*),INTENT(IN) ::svar,cname
-  character(len=50) :: cvar
-  cvar=trim(cname)//" emission rate"
-  call check( nf90_def_var(ncid, svar, NF90_REAL, dimids,id_var ) )
-  ! Assign  attributes
-  call check( nf90_put_att(ncid, id_var, "FieldType", 104 ) )
-  call check( nf90_put_att(ncid, id_var, "MemoryOrder", "XYZ") )
-  call check( nf90_put_att(ncid, id_var, "description",cvar) )
-  call check( nf90_put_att(ncid, id_var, "units", "ug m-2 s-1"))
-  call check( nf90_put_att(ncid, id_var, "stagger", "Z") )
-  call check( nf90_put_att(ncid, id_var, "coordinates", "XLONG XLAT") )
-  ! print *,"Entro a Attributos de variable",dimids,id,jd
-return
-end subroutine crea_attr2
+  !                               _   _
+  !   ___ _ __ ___  __ _     __ _| |_| |_ _ __
+  !  / __| '__/ _ \/ _` |   / _` | __| __| '__|
+  ! | (__| | |  __/ (_| |  | (_| | |_| |_| |
+  !  \___|_|  \___|\__,_|___\__,_|\__|\__|_|
+  !                    |_____|
+  !>   @brief Creates attributes for each variable in the netcdf file
+  !>   @details
+  !>   @author  Jose Agustin Garcia Reynoso
+  !>   @date  07/13/2020
+  !>   @version  2.2
+  !>   @copyright Universidad Nacional Autonoma de Mexico 2020
+  !>   @param ncid netcdf file ID
+  !>   @param ifl type of variable 0 for ratio, 1 for emissions 2 for number
+  !>   @param dimids ID dimensons array
+  !>   @param svar short variable name
+  !>   @param cname description variable name
+  !>   @param cunits units of the variable
+  !>   @param id_var variable ID
+  subroutine crea_attr(ncid,ifl,dimids,svar,cname,cunits,id_var)
+  use netcdf
+      implicit none
+      integer , INTENT(IN) ::ncid,ifl
+      integer, INTENT(out) :: id_var
+      integer, INTENT(IN),dimension(:):: dimids
+      character(len=*), INTENT(IN)::svar,cname,cunits
+      character(len=50) :: cvar
+      if (ifl.eq.0)cvar="temporal_profile "//trim(cname)
+      if (ifl.eq.1) cvar="Flux "//trim(cname)
+      if (ifl.eq.2) cvar="Number vehicles type "//trim(cname)
+      call check( nf90_def_var(ncid, svar, NF90_REAL, dimids,id_var ) )
+      ! Assign  attributes
+      call check( nf90_put_att(ncid, id_var, "FieldType", 104 ) )
+      call check( nf90_put_att(ncid, id_var, "MemoryOrder", "XYZ") )
+      call check( nf90_put_att(ncid, id_var, "standard_name", cvar) )
+      call check( nf90_put_att(ncid, id_var, "description", cvar) )
+      call check( nf90_put_att(ncid, id_var, "units", cunits))
+      call check( nf90_put_att(ncid, id_var, "stagger", "Z") )
+      call check( nf90_put_att(ncid, id_var, "coordinates", "XLONG XLAT") )
+      call check( nf90_put_att(ncid, id_var, "coverage_content_type","modelResult"))
+      ! print *,"Entro a Attributos de variable",dimids,id,jd
+      return
+  end subroutine crea_attr
 end subroutine guarda_emisiones
