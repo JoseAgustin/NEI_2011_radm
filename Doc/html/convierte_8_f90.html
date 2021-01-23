@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NEI_2011_radm: source/convierte.F90 File Reference</title>
+<title>NEI_2011_radm: /Users/agustin/proyectos/NEI_2011_radm/source/convierte.F90 File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,10 +73,13 @@ $(function() {
 <div class="title">convierte.F90 File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="convierte_8_f90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a15bd859807fb831af17c314cb1dbaade"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="convierte_8_f90.html#a15bd859807fb831af17c314cb1dbaade">nei_2011</a></td></tr>
+<tr class="memdesc:a15bd859807fb831af17c314cb1dbaade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary files from NEI 2011 and converts into netcdf.  <a href="convierte_8_f90.html#a15bd859807fb831af17c314cb1dbaade">More...</a><br /></td></tr>
 <tr class="separator:a15bd859807fb831af17c314cb1dbaade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
@@ -91,6 +94,14 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads binary files from NEI 2011 and converts into netcdf. </p>
+<p>using wrfinput to set dates, attributes and dimensions for RADM2 mechanism this is made in two steps: 1) Set hh=0 to indicate thet binary file starting at 00Z will be read reads wrfiput file obtaining time, attibutes and dimensions. stores 00z emissions data in netcdf format 2) Set hh=12 to read 12Z binary file uses previous wrfinput information and stores 12z emissions data in netcdf format </p><dl class="section author"><dt>Author</dt><dd>Jose Agustin Garcia Reynoso </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>26/04/2018 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Universidad Nacional Autonoma de Mexico </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="convierte_8_f90_source.html#l00017">17</a> of file <a class="el" href="convierte_8_f90_source.html">convierte.F90</a>.</p>
 
 </div>
 </div>

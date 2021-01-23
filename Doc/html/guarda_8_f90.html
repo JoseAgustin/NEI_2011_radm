@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NEI_2011_radm: source/guarda.F90 File Reference</title>
+<title>NEI_2011_radm: /Users/agustin/proyectos/NEI_2011_radm/source/guarda.F90 File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,19 +73,21 @@ $(function() {
 <div class="title">guarda.F90 File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="guarda_8_f90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aeb211a1f0e0030a73b46cd7686d918a9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guarda_8_f90.html#aeb211a1f0e0030a73b46cd7686d918a9">guarda_emisiones</a></td></tr>
+<tr class="memdesc:aeb211a1f0e0030a73b46cd7686d918a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores emissions in radm categories in netcdf format.  <a href="guarda_8_f90.html#aeb211a1f0e0030a73b46cd7686d918a9">More...</a><br /></td></tr>
 <tr class="separator:aeb211a1f0e0030a73b46cd7686d918a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eda0632d097fa0b099016222a889eb4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guarda_8_f90.html#a9eda0632d097fa0b099016222a889eb4">crea_attr</a> (ncid, idm, dimids, svar, cname, id_var)</td></tr>
-<tr class="separator:a9eda0632d097fa0b099016222a889eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada5014c1eae59effbb8ebb9dc9e8cd5c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guarda_8_f90.html#ada5014c1eae59effbb8ebb9dc9e8cd5c">crea_attr2</a> (ncid, idm, dimids, svar, cname, id_var)</td></tr>
-<tr class="separator:ada5014c1eae59effbb8ebb9dc9e8cd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfabc295a48516eb9fed6019d3b1cf6"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guarda_8_f90.html#adcfabc295a48516eb9fed6019d3b1cf6">crea_attr</a> (ncid, ifl, dimids, svar, cname, cunits, id_var)</td></tr>
+<tr class="memdesc:adcfabc295a48516eb9fed6019d3b1cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates attributes for each variable in the netcdf file.  <a href="guarda_8_f90.html#adcfabc295a48516eb9fed6019d3b1cf6">More...</a><br /></td></tr>
+<tr class="separator:adcfabc295a48516eb9fed6019d3b1cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a9eda0632d097fa0b099016222a889eb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eda0632d097fa0b099016222a889eb4">&#9670;&nbsp;</a></span>crea_attr()</h2>
+<a id="adcfabc295a48516eb9fed6019d3b1cf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcfabc295a48516eb9fed6019d3b1cf6">&#9670;&nbsp;</a></span>crea_attr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -100,12 +102,12 @@ Functions/Subroutines</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>idm</em>, </td>
+          <td class="paramname"><em>ifl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, dimension(idm), intent(in)&#160;</td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
           <td class="paramname"><em>dimids</em>, </td>
         </tr>
         <tr>
@@ -123,54 +125,8 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(out)&#160;</td>
-          <td class="paramname"><em>id_var</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ada5014c1eae59effbb8ebb9dc9e8cd5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada5014c1eae59effbb8ebb9dc9e8cd5c">&#9670;&nbsp;</a></span>crea_attr2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine guarda_emisiones::crea_attr2 </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>ncid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>idm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(idm), intent(in)&#160;</td>
-          <td class="paramname"><em>dimids</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>svar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>cname</em>, </td>
+          <td class="paramname"><em>cunits</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -185,6 +141,26 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates attributes for each variable in the netcdf file. </p>
+<dl class="section author"><dt>Author</dt><dd>Jose Agustin Garcia Reynoso </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>07/13/2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.2 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Universidad Nacional Autonoma de Mexico 2020 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ncid</td><td>netcdf file ID </td></tr>
+    <tr><td class="paramname">ifl</td><td>type of variable 0 for ratio, 1 for emissions 2 for number </td></tr>
+    <tr><td class="paramname">dimids</td><td>ID dimensons array </td></tr>
+    <tr><td class="paramname">svar</td><td>short variable name </td></tr>
+    <tr><td class="paramname">cname</td><td>description variable name </td></tr>
+    <tr><td class="paramname">cunits</td><td>units of the variable </td></tr>
+    <tr><td class="paramname">id_var</td><td>variable ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="guarda_8_f90_source.html#l00208">208</a> of file <a class="el" href="guarda_8_f90_source.html">guarda.F90</a>.</p>
 
 </div>
 </div>
@@ -199,6 +175,14 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Stores emissions in radm categories in netcdf format. </p>
+<dl class="section author"><dt>Author</dt><dd>Jose Agustin Garcia Reynoso </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>26/04/2018 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Universidad Nacional Autonoma de Mexico </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="guarda_8_f90_source.html#l00021">21</a> of file <a class="el" href="guarda_8_f90_source.html">guarda.F90</a>.</p>
 
 </div>
 </div>

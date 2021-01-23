@@ -26,7 +26,7 @@ implicit none
   if(hh.eq.00) then
    nfile="wrfem_00to12z_d01"
    print *,"    ***************  "
-   print *,"    ** Convierte **  "
+   print *,"    ** Converts  **  "
    print *,"    ***************  "
   end if
   print *," "

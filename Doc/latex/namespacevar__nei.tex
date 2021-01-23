@@ -1,5 +1,10 @@
 \hypertarget{namespacevar__nei}{}\doxysection{var\+\_\+nei Module Reference}
 \label{namespacevar__nei}\index{var\_nei@{var\_nei}}
+
+
+Emissions Inventorie Variables.  
+
+
 \doxysubsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,93 +16,102 @@ subroutine \mbox{\hyperlink{namespacevar__nei_a5fe713a0ee5e7edd4b32a51a33594231}
 \begin{DoxyCompactItemize}
 \item 
 integer \mbox{\hyperlink{namespacevar__nei_a5117ea5c547d9e25bdaa90b582225443}{zlev}}
-\item 
+\begin{DoxyCompactList}\small\item\em Emission Layer. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a43a56edbc3672c32ebace4fd169be394}{hh}}
-\item 
+\begin{DoxyCompactList}\small\item\em Start hour in binary emissions file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a2ef5f1b04fa83ab0a14e66ffb0a5e058}{nradm}}
-\item 
+\begin{DoxyCompactList}\small\item\em Number of chemical species in netcdf emissions file. \end{DoxyCompactList}\item 
 integer, parameter \mbox{\hyperlink{namespacevar__nei_a975ecb8997fa1fd76407f787a09b08a7}{nh}} =24
-\item 
+\begin{DoxyCompactList}\small\item\em Number of hours in a day. \end{DoxyCompactList}\item 
 integer, parameter \mbox{\hyperlink{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}{radm}} =32
-\item 
+\begin{DoxyCompactList}\small\item\em Number of chemical species in R\+A\+DM mechanism. \end{DoxyCompactList}\item 
 integer, parameter \mbox{\hyperlink{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}{ndims}} =6
-\item 
+\begin{DoxyCompactList}\small\item\em Number dimensions to be stored in netcdf output file. \end{DoxyCompactList}\item 
 real, dimension(\+:,\+:,\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a4b84a220c2eb1d3bc021504a03b66110}{emiss3d}}
-\item 
-real, dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a809c181280b386f11e8d0b00c1a72b89}{dlat}}
-\item 
-real, dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_adec17c7cb898b8eec926189545553856}{dlon}}
-\item 
-real, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a2a9d74ef27ef35da3cfc882c8357c7ac}{xlon}}
-\item 
+\begin{DoxyCompactList}\small\item\em emissions by nx,ny,level,nh,radm \end{DoxyCompactList}\item 
 real, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ade63ffda52ab9b9488641fab4905a02e}{xlat}}
-\item 
+\begin{DoxyCompactList}\small\item\em Latitude coordinates by nx,ny,nh from wrfinput file. \end{DoxyCompactList}\item 
+real, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevar__nei_a2a9d74ef27ef35da3cfc882c8357c7ac}{xlon}}
+\begin{DoxyCompactList}\small\item\em Longitude coordinates by nx,ny,nh from wrfinput file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a98535a88d2cf23fcb8d37e8cc43a08e5}{grid\+\_\+id}}
-\item 
+\begin{DoxyCompactList}\small\item\em Domain ID from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_ad2e01d0c02a4c2f74f6386de1578e4c2}{julyr}}
-\item 
+\begin{DoxyCompactList}\small\item\em julian year global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a8a8770ff12b4e52d5450d3231c2844e4}{julday}}
-\item 
+\begin{DoxyCompactList}\small\item\em julian day global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a38c7e8153ab0ea76cf89c3dd6c65445d}{mapproj}}
-\item 
+\begin{DoxyCompactList}\small\item\em Map projection ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a9af3f8b5aa8683e7379916f999f18ae1}{iswater}}
-\item 
+\begin{DoxyCompactList}\small\item\em Water ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a09b80403e667c229f024f72580a3035d}{islake}}
-\item 
+\begin{DoxyCompactList}\small\item\em Lake ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_adb2d7db1372b6b1ebb1f00a231a7f87d}{isice}}
-\item 
+\begin{DoxyCompactList}\small\item\em Ice ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a93d4e35eb70360b3ebde6731c92260e3}{isurban}}
-\item 
+\begin{DoxyCompactList}\small\item\em Urban ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 integer \mbox{\hyperlink{namespacevar__nei_a6741b96a3eacfe299faf7bb6bfd7d7a3}{isoilwater}}
-\item 
+\begin{DoxyCompactList}\small\item\em Water-\/soil ID global attribure from wrfinput file and used in output file. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a1a402085788df8b55abe39bf1e48fa4f}{cenlat}}
-\item 
+\begin{DoxyCompactList}\small\item\em Projection central latitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_afe984e57938b30348903f7f2ac74db79}{cenlon}}
-\item 
+\begin{DoxyCompactList}\small\item\em Projection central longitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a319bbc18dfec899c95723ad0d551a6ef}{dx}}
-\item 
+\begin{DoxyCompactList}\small\item\em Grid size (m) in W-\/E direction. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_ad85e30a2569417304d2768495dd9ab53}{dy}}
-\item 
+\begin{DoxyCompactList}\small\item\em Grid size (m) in S-\/N direction. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a416a76e9d15a9c5ab71bf35fae4c1d0b}{trulat1}}
-\item 
+\begin{DoxyCompactList}\small\item\em Standard parallel 1. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a00978e4557e6ed2bbc13f0d18814748b}{trulat2}}
-\item 
+\begin{DoxyCompactList}\small\item\em Standard parallel 2. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a338f31f3a76b4e9ffdaa5b02b3ae9e6e}{moadcenlat}}
-\item 
+\begin{DoxyCompactList}\small\item\em Mother of all domains center latitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a0367bed8cb2c98709f1e668eb3ec5e48}{stdlon}}
-\item 
+\begin{DoxyCompactList}\small\item\em Standard longitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_afadb7693d50fbbc75d0b9f9ba9c51eb1}{pollat}}
-\item 
+\begin{DoxyCompactList}\small\item\em Pole latitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_aaf4b67486f23af1e4e9c90fe803f2b68}{pollon}}
-\item 
+\begin{DoxyCompactList}\small\item\em Pole longitude. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a70c1137eb5673bd43647181815afaf4d}{gmt}}
-\item 
+\begin{DoxyCompactList}\small\item\em Time zone. \end{DoxyCompactList}\item 
 real \mbox{\hyperlink{namespacevar__nei_a3c4cdd97258d3da0e3c9d7d2b75f684e}{num\+\_\+land\+\_\+cat}}
-\item 
-character(len=3) \mbox{\hyperlink{namespacevar__nei_af6fb77ce1de73b45b3930eb5c9103af3}{cday}}
-\item 
+\begin{DoxyCompactList}\small\item\em Land cover categories number. \end{DoxyCompactList}\item 
+character(len=10) \mbox{\hyperlink{namespacevar__nei_a847066769573da441bdebccaaacb7181}{cday}}
+\begin{DoxyCompactList}\small\item\em Day of the week. \end{DoxyCompactList}\item 
 character(len=9), dimension(\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ae00c801ba22412551de48c990b24f3fa}{ename1}}
-\item 
+\begin{DoxyCompactList}\small\item\em Emissions name in binary file. \end{DoxyCompactList}\item 
 character(len=10), dimension(\+:), allocatable \mbox{\hyperlink{namespacevar__nei_ac5d582f5e49823cf542a314b49880ff1}{ename}}
-\item 
+\begin{DoxyCompactList}\small\item\em Emissions name in output netcdf file. \end{DoxyCompactList}\item 
 character(len=19) \mbox{\hyperlink{namespacevar__nei_a5038883212dd6aec7b31e75169112d3f}{mminlu}}
-\item 
-character(len=19) \mbox{\hyperlink{namespacevar__nei_af68fb08c3df8c5160d493360e9e3c90a}{map\+\_\+proj\+\_\+char}}
-\item 
-character(len=19) \mbox{\hyperlink{namespacevar__nei_ae469d1e363b120c98362d2815b7cb82f}{itime}}
-\item 
+\begin{DoxyCompactList}\small\item\em Source of land use data. \end{DoxyCompactList}\item 
+character(len=19) \mbox{\hyperlink{namespacevar__nei_acc680e231a19a3dead83eefe8d30155b}{cmap\+\_\+proj\+\_\+char}}
+\begin{DoxyCompactList}\small\item\em Projection description. \end{DoxyCompactList}\item 
 character(len=38) \mbox{\hyperlink{namespacevar__nei_a3cb5fb7b59d8b25ebb4de07468c596be}{title}}
-\item 
-character(len=19), dimension(1, 1) \mbox{\hyperlink{namespacevar__nei_ad887da7be27ee1ec4275175b6666763d}{times}}
-\item 
+\begin{DoxyCompactList}\small\item\em Title from wrfinput file. \end{DoxyCompactList}\item 
 character(len=19), dimension(\mbox{\hyperlink{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}{ndims}}) \mbox{\hyperlink{namespacevar__nei_a99b4c3f10c0f0cf5a72f39cd68d3189e}{sdim}} =(/\char`\"{}Time \char`\"{}, \char`\"{}Date\+Str\+Len \char`\"{},\char`\"{}west\+\_\+east \char`\"{},\char`\"{}south\+\_\+north \char`\"{},\char`\"{}bottom\+\_\+top \char`\"{},\char`\"{}emissions\+\_\+zdim\+\_\+stag\char`\"{}/)
-\item 
+\begin{DoxyCompactList}\small\item\em Dimension description array. \end{DoxyCompactList}\item 
 character(len=19), dimension(\mbox{\hyperlink{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}{radm}}) \mbox{\hyperlink{namespacevar__nei_a049938150fa6e1cd2e33cdfea46ce76c}{cname}} =(/\textquotesingle{}Sulfur Dioxide \textquotesingle{}, \textquotesingle{}Nitrogen oxide \textquotesingle{},\textquotesingle{}Aldehydes \textquotesingle{},\textquotesingle{}H\+C\+HO \textquotesingle{},\textquotesingle{}Acetic Acid \textquotesingle{}, \textquotesingle{}Ammonia \textquotesingle{},\textquotesingle{}Butanes \textquotesingle{},\textquotesingle{}Pentanes \textquotesingle{},\textquotesingle{}Alkane \textquotesingle{}, \textquotesingle{}Ethane \textquotesingle{},\textquotesingle{}Carbon Monoxide \textquotesingle{},\textquotesingle{}Alkanes \textquotesingle{},\textquotesingle{}Terminal Alkenes\textquotesingle{}, \textquotesingle{}Alkenes \textquotesingle{},\textquotesingle{}Toluene \textquotesingle{},\textquotesingle{}Xylene \textquotesingle{},\textquotesingle{}Acetone \textquotesingle{}, \textquotesingle{}Cresol \textquotesingle{},\textquotesingle{}Isoprene \textquotesingle{},\textquotesingle{}Methane \textquotesingle{},\textquotesingle{}P\+M25I \textquotesingle{}, \textquotesingle{}P\+M25J \textquotesingle{},\textquotesingle{}SulfatesI \textquotesingle{},\textquotesingle{}SulfatesJ \textquotesingle{},\textquotesingle{}Nitrates \textquotesingle{}, \textquotesingle{}NitratesJ \textquotesingle{},\textquotesingle{}OrganicI \textquotesingle{},\textquotesingle{}OrganicJ \textquotesingle{},\textquotesingle{}Elemental Carb I\textquotesingle{}, \textquotesingle{}Elemental Carb J\textquotesingle{},\textquotesingle{}P\+M\+\_\+10 \textquotesingle{},\textquotesingle{}Nitrogen Dioxide\textquotesingle{}/)
-\item 
+\begin{DoxyCompactList}\small\item\em Chemical mechanism variable emissions description. \end{DoxyCompactList}\item 
 character(len=19) \mbox{\hyperlink{namespacevar__nei_a406c338d243198f8e99ebf5f430de3c9}{current\+\_\+date}}
-\item 
+\begin{DoxyCompactList}\small\item\em Date in wrfiput file. \end{DoxyCompactList}\item 
 character(len=19) \mbox{\hyperlink{namespacevar__nei_ab24fb026e07deedb53e584bb393e80c5}{mecha}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em mechanism name \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Emissions Inventorie Variables. 
+
+\begin{DoxyAuthor}{Author}
+Jose Agustin Garcia Reynoso 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+25/04/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+Universidad Nacional Autonoma de Mexico 
+\end{DoxyCopyright}
 
 
 \doxysubsection{Function/\+Subroutine Documentation}
@@ -119,6 +133,10 @@ Verifies no error in netcdf function call.
 \begin{DoxyCopyright}{Copyright}
 1993-\/2020 University Corporation for Atmospheric Research/\+Unidata 
 \end{DoxyCopyright}
+
+
+Definition at line 144 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a5fe713a0ee5e7edd4b32a51a33594231}\label{namespacevar__nei_a5fe713a0ee5e7edd4b32a51a33594231}} 
 \index{var\_nei@{var\_nei}!lee\_nml@{lee\_nml}}
 \index{lee\_nml@{lee\_nml}!var\_nei@{var\_nei}}
@@ -152,12 +170,24 @@ Universidad Nacional Autonoma de Mexico
 \end{DoxyParams}
 
 
+Definition at line 168 of file module\+\_\+var\+\_\+nei.\+F90.
+
+
+
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespacevar__nei_af6fb77ce1de73b45b3930eb5c9103af3}\label{namespacevar__nei_af6fb77ce1de73b45b3930eb5c9103af3}} 
+\mbox{\Hypertarget{namespacevar__nei_a847066769573da441bdebccaaacb7181}\label{namespacevar__nei_a847066769573da441bdebccaaacb7181}} 
 \index{var\_nei@{var\_nei}!cday@{cday}}
 \index{cday@{cday}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{cday}{cday}}
-{\footnotesize\ttfamily character(len=3) var\+\_\+nei\+::cday}
+{\footnotesize\ttfamily character(len=10) var\+\_\+nei\+::cday}
+
+
+
+Day of the week. 
+
+
+
+Definition at line 70 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a1a402085788df8b55abe39bf1e48fa4f}\label{namespacevar__nei_a1a402085788df8b55abe39bf1e48fa4f}} 
 \index{var\_nei@{var\_nei}!cenlat@{cenlat}}
@@ -165,11 +195,41 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{cenlat}{cenlat}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::cenlat}
 
+
+
+Projection central latitude. 
+
+
+
+Definition at line 46 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_afe984e57938b30348903f7f2ac74db79}\label{namespacevar__nei_afe984e57938b30348903f7f2ac74db79}} 
 \index{var\_nei@{var\_nei}!cenlon@{cenlon}}
 \index{cenlon@{cenlon}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{cenlon}{cenlon}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::cenlon}
+
+
+
+Projection central longitude. 
+
+
+
+Definition at line 48 of file module\+\_\+var\+\_\+nei.\+F90.
+
+\mbox{\Hypertarget{namespacevar__nei_acc680e231a19a3dead83eefe8d30155b}\label{namespacevar__nei_acc680e231a19a3dead83eefe8d30155b}} 
+\index{var\_nei@{var\_nei}!cmap\_proj\_char@{cmap\_proj\_char}}
+\index{cmap\_proj\_char@{cmap\_proj\_char}!var\_nei@{var\_nei}}
+\doxysubsubsection{\texorpdfstring{cmap\_proj\_char}{cmap\_proj\_char}}
+{\footnotesize\ttfamily character(len=19) var\+\_\+nei\+::cmap\+\_\+proj\+\_\+char}
+
+
+
+Projection description. 
+
+
+
+Definition at line 78 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a049938150fa6e1cd2e33cdfea46ce76c}\label{namespacevar__nei_a049938150fa6e1cd2e33cdfea46ce76c}} 
 \index{var\_nei@{var\_nei}!cname@{cname}}
@@ -177,23 +237,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{cname}{cname}}
 {\footnotesize\ttfamily character(len= 19), dimension(\mbox{\hyperlink{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}{radm}}) var\+\_\+nei\+::cname =(/\textquotesingle{}Sulfur Dioxide \textquotesingle{}, \textquotesingle{}Nitrogen oxide \textquotesingle{},\textquotesingle{}Aldehydes \textquotesingle{},\textquotesingle{}H\+C\+HO \textquotesingle{},\textquotesingle{}Acetic Acid \textquotesingle{}, \textquotesingle{}Ammonia \textquotesingle{},\textquotesingle{}Butanes \textquotesingle{},\textquotesingle{}Pentanes \textquotesingle{},\textquotesingle{}Alkane \textquotesingle{}, \textquotesingle{}Ethane \textquotesingle{},\textquotesingle{}Carbon Monoxide \textquotesingle{},\textquotesingle{}Alkanes \textquotesingle{},\textquotesingle{}Terminal Alkenes\textquotesingle{}, \textquotesingle{}Alkenes \textquotesingle{},\textquotesingle{}Toluene \textquotesingle{},\textquotesingle{}Xylene \textquotesingle{},\textquotesingle{}Acetone \textquotesingle{}, \textquotesingle{}Cresol \textquotesingle{},\textquotesingle{}Isoprene \textquotesingle{},\textquotesingle{}Methane \textquotesingle{},\textquotesingle{}P\+M25I \textquotesingle{}, \textquotesingle{}P\+M25J \textquotesingle{},\textquotesingle{}SulfatesI \textquotesingle{},\textquotesingle{}SulfatesJ \textquotesingle{},\textquotesingle{}Nitrates \textquotesingle{}, \textquotesingle{}NitratesJ \textquotesingle{},\textquotesingle{}OrganicI \textquotesingle{},\textquotesingle{}OrganicJ \textquotesingle{},\textquotesingle{}Elemental Carb I\textquotesingle{}, \textquotesingle{}Elemental Carb J\textquotesingle{},\textquotesingle{}P\+M\+\_\+10 \textquotesingle{},\textquotesingle{}Nitrogen Dioxide\textquotesingle{}/)}
 
+
+
+Chemical mechanism variable emissions description. 
+
+
+
+Definition at line 86 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a406c338d243198f8e99ebf5f430de3c9}\label{namespacevar__nei_a406c338d243198f8e99ebf5f430de3c9}} 
 \index{var\_nei@{var\_nei}!current\_date@{current\_date}}
 \index{current\_date@{current\_date}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{current\_date}{current\_date}}
 {\footnotesize\ttfamily character (len=19) var\+\_\+nei\+::current\+\_\+date}
 
-\mbox{\Hypertarget{namespacevar__nei_a809c181280b386f11e8d0b00c1a72b89}\label{namespacevar__nei_a809c181280b386f11e8d0b00c1a72b89}} 
-\index{var\_nei@{var\_nei}!dlat@{dlat}}
-\index{dlat@{dlat}!var\_nei@{var\_nei}}
-\doxysubsubsection{\texorpdfstring{dlat}{dlat}}
-{\footnotesize\ttfamily real, dimension(\+:,\+:), allocatable var\+\_\+nei\+::dlat}
 
-\mbox{\Hypertarget{namespacevar__nei_adec17c7cb898b8eec926189545553856}\label{namespacevar__nei_adec17c7cb898b8eec926189545553856}} 
-\index{var\_nei@{var\_nei}!dlon@{dlon}}
-\index{dlon@{dlon}!var\_nei@{var\_nei}}
-\doxysubsubsection{\texorpdfstring{dlon}{dlon}}
-{\footnotesize\ttfamily real, dimension(\+:,\+:), allocatable var\+\_\+nei\+::dlon}
+
+Date in wrfiput file. 
+
+
+
+Definition at line 96 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a319bbc18dfec899c95723ad0d551a6ef}\label{namespacevar__nei_a319bbc18dfec899c95723ad0d551a6ef}} 
 \index{var\_nei@{var\_nei}!dx@{dx}}
@@ -201,11 +265,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{dx}{dx}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::dx}
 
+
+
+Grid size (m) in W-\/E direction. 
+
+
+
+Definition at line 50 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_ad85e30a2569417304d2768495dd9ab53}\label{namespacevar__nei_ad85e30a2569417304d2768495dd9ab53}} 
 \index{var\_nei@{var\_nei}!dy@{dy}}
 \index{dy@{dy}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{dy}{dy}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::dy}
+
+
+
+Grid size (m) in S-\/N direction. 
+
+
+
+Definition at line 52 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a4b84a220c2eb1d3bc021504a03b66110}\label{namespacevar__nei_a4b84a220c2eb1d3bc021504a03b66110}} 
 \index{var\_nei@{var\_nei}!emiss3d@{emiss3d}}
@@ -213,11 +293,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{emiss3d}{emiss3d}}
 {\footnotesize\ttfamily real, dimension(\+:,\+:,\+:,\+:,\+:), allocatable var\+\_\+nei\+::emiss3d}
 
+
+
+emissions by nx,ny,level,nh,radm 
+
+
+
+Definition at line 22 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_ac5d582f5e49823cf542a314b49880ff1}\label{namespacevar__nei_ac5d582f5e49823cf542a314b49880ff1}} 
 \index{var\_nei@{var\_nei}!ename@{ename}}
 \index{ename@{ename}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{ename}{ename}}
 {\footnotesize\ttfamily character (len=10), dimension(\+:), allocatable var\+\_\+nei\+::ename}
+
+
+
+Emissions name in output netcdf file. 
+
+
+
+Definition at line 74 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_ae00c801ba22412551de48c990b24f3fa}\label{namespacevar__nei_ae00c801ba22412551de48c990b24f3fa}} 
 \index{var\_nei@{var\_nei}!ename1@{ename1}}
@@ -225,11 +321,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{ename1}{ename1}}
 {\footnotesize\ttfamily character (len= 9), dimension(\+:), allocatable var\+\_\+nei\+::ename1}
 
+
+
+Emissions name in binary file. 
+
+
+
+Definition at line 72 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a70c1137eb5673bd43647181815afaf4d}\label{namespacevar__nei_a70c1137eb5673bd43647181815afaf4d}} 
 \index{var\_nei@{var\_nei}!gmt@{gmt}}
 \index{gmt@{gmt}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{gmt}{gmt}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::gmt}
+
+
+
+Time zone. 
+
+
+
+Definition at line 66 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a98535a88d2cf23fcb8d37e8cc43a08e5}\label{namespacevar__nei_a98535a88d2cf23fcb8d37e8cc43a08e5}} 
 \index{var\_nei@{var\_nei}!grid\_id@{grid\_id}}
@@ -237,11 +349,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{grid\_id}{grid\_id}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::grid\+\_\+id}
 
+
+
+Domain ID from wrfinput file and used in output file. 
+
+
+
+Definition at line 28 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a43a56edbc3672c32ebace4fd169be394}\label{namespacevar__nei_a43a56edbc3672c32ebace4fd169be394}} 
 \index{var\_nei@{var\_nei}!hh@{hh}}
 \index{hh@{hh}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{hh}{hh}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::hh}
+
+
+
+Start hour in binary emissions file. 
+
+
+
+Definition at line 12 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_adb2d7db1372b6b1ebb1f00a231a7f87d}\label{namespacevar__nei_adb2d7db1372b6b1ebb1f00a231a7f87d}} 
 \index{var\_nei@{var\_nei}!isice@{isice}}
@@ -249,11 +377,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{isice}{isice}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::isice}
 
+
+
+Ice ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 40 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a09b80403e667c229f024f72580a3035d}\label{namespacevar__nei_a09b80403e667c229f024f72580a3035d}} 
 \index{var\_nei@{var\_nei}!islake@{islake}}
 \index{islake@{islake}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{islake}{islake}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::islake}
+
+
+
+Lake ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 38 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a6741b96a3eacfe299faf7bb6bfd7d7a3}\label{namespacevar__nei_a6741b96a3eacfe299faf7bb6bfd7d7a3}} 
 \index{var\_nei@{var\_nei}!isoilwater@{isoilwater}}
@@ -261,11 +405,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{isoilwater}{isoilwater}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::isoilwater}
 
+
+
+Water-\/soil ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 44 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a93d4e35eb70360b3ebde6731c92260e3}\label{namespacevar__nei_a93d4e35eb70360b3ebde6731c92260e3}} 
 \index{var\_nei@{var\_nei}!isurban@{isurban}}
 \index{isurban@{isurban}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{isurban}{isurban}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::isurban}
+
+
+
+Urban ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 42 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a9af3f8b5aa8683e7379916f999f18ae1}\label{namespacevar__nei_a9af3f8b5aa8683e7379916f999f18ae1}} 
 \index{var\_nei@{var\_nei}!iswater@{iswater}}
@@ -273,11 +433,13 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{iswater}{iswater}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::iswater}
 
-\mbox{\Hypertarget{namespacevar__nei_ae469d1e363b120c98362d2815b7cb82f}\label{namespacevar__nei_ae469d1e363b120c98362d2815b7cb82f}} 
-\index{var\_nei@{var\_nei}!itime@{itime}}
-\index{itime@{itime}!var\_nei@{var\_nei}}
-\doxysubsubsection{\texorpdfstring{itime}{itime}}
-{\footnotesize\ttfamily character(len=19) var\+\_\+nei\+::itime}
+
+
+Water ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 36 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a8a8770ff12b4e52d5450d3231c2844e4}\label{namespacevar__nei_a8a8770ff12b4e52d5450d3231c2844e4}} 
 \index{var\_nei@{var\_nei}!julday@{julday}}
@@ -285,17 +447,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{julday}{julday}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::julday}
 
+
+
+julian day global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 32 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_ad2e01d0c02a4c2f74f6386de1578e4c2}\label{namespacevar__nei_ad2e01d0c02a4c2f74f6386de1578e4c2}} 
 \index{var\_nei@{var\_nei}!julyr@{julyr}}
 \index{julyr@{julyr}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{julyr}{julyr}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::julyr}
 
-\mbox{\Hypertarget{namespacevar__nei_af68fb08c3df8c5160d493360e9e3c90a}\label{namespacevar__nei_af68fb08c3df8c5160d493360e9e3c90a}} 
-\index{var\_nei@{var\_nei}!map\_proj\_char@{map\_proj\_char}}
-\index{map\_proj\_char@{map\_proj\_char}!var\_nei@{var\_nei}}
-\doxysubsubsection{\texorpdfstring{map\_proj\_char}{map\_proj\_char}}
-{\footnotesize\ttfamily character(len=19) var\+\_\+nei\+::map\+\_\+proj\+\_\+char}
+
+
+julian year global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 30 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a38c7e8153ab0ea76cf89c3dd6c65445d}\label{namespacevar__nei_a38c7e8153ab0ea76cf89c3dd6c65445d}} 
 \index{var\_nei@{var\_nei}!mapproj@{mapproj}}
@@ -303,11 +475,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{mapproj}{mapproj}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::mapproj}
 
+
+
+Map projection ID global attribure from wrfinput file and used in output file. 
+
+
+
+Definition at line 34 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_ab24fb026e07deedb53e584bb393e80c5}\label{namespacevar__nei_ab24fb026e07deedb53e584bb393e80c5}} 
 \index{var\_nei@{var\_nei}!mecha@{mecha}}
 \index{mecha@{mecha}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{mecha}{mecha}}
 {\footnotesize\ttfamily character (len=19) var\+\_\+nei\+::mecha}
+
+
+
+mechanism name 
+
+
+
+Definition at line 98 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a5038883212dd6aec7b31e75169112d3f}\label{namespacevar__nei_a5038883212dd6aec7b31e75169112d3f}} 
 \index{var\_nei@{var\_nei}!mminlu@{mminlu}}
@@ -315,11 +503,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{mminlu}{mminlu}}
 {\footnotesize\ttfamily character(len=19) var\+\_\+nei\+::mminlu}
 
+
+
+Source of land use data. 
+
+
+
+Definition at line 76 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a338f31f3a76b4e9ffdaa5b02b3ae9e6e}\label{namespacevar__nei_a338f31f3a76b4e9ffdaa5b02b3ae9e6e}} 
 \index{var\_nei@{var\_nei}!moadcenlat@{moadcenlat}}
 \index{moadcenlat@{moadcenlat}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{moadcenlat}{moadcenlat}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::moadcenlat}
+
+
+
+Mother of all domains center latitude. 
+
+
+
+Definition at line 58 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}\label{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}} 
 \index{var\_nei@{var\_nei}!ndims@{ndims}}
@@ -327,11 +531,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{ndims}{ndims}}
 {\footnotesize\ttfamily integer, parameter var\+\_\+nei\+::ndims =6}
 
+
+
+Number dimensions to be stored in netcdf output file. 
+
+
+
+Definition at line 20 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a975ecb8997fa1fd76407f787a09b08a7}\label{namespacevar__nei_a975ecb8997fa1fd76407f787a09b08a7}} 
 \index{var\_nei@{var\_nei}!nh@{nh}}
 \index{nh@{nh}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{nh}{nh}}
 {\footnotesize\ttfamily integer, parameter var\+\_\+nei\+::nh =24}
+
+
+
+Number of hours in a day. 
+
+
+
+Definition at line 16 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a2ef5f1b04fa83ab0a14e66ffb0a5e058}\label{namespacevar__nei_a2ef5f1b04fa83ab0a14e66ffb0a5e058}} 
 \index{var\_nei@{var\_nei}!nradm@{nradm}}
@@ -339,11 +559,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{nradm}{nradm}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::nradm}
 
+
+
+Number of chemical species in netcdf emissions file. 
+
+
+
+Definition at line 14 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a3c4cdd97258d3da0e3c9d7d2b75f684e}\label{namespacevar__nei_a3c4cdd97258d3da0e3c9d7d2b75f684e}} 
 \index{var\_nei@{var\_nei}!num\_land\_cat@{num\_land\_cat}}
 \index{num\_land\_cat@{num\_land\_cat}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{num\_land\_cat}{num\_land\_cat}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::num\+\_\+land\+\_\+cat}
+
+
+
+Land cover categories number. 
+
+
+
+Definition at line 68 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_afadb7693d50fbbc75d0b9f9ba9c51eb1}\label{namespacevar__nei_afadb7693d50fbbc75d0b9f9ba9c51eb1}} 
 \index{var\_nei@{var\_nei}!pollat@{pollat}}
@@ -351,11 +587,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{pollat}{pollat}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::pollat}
 
+
+
+Pole latitude. 
+
+
+
+Definition at line 62 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_aaf4b67486f23af1e4e9c90fe803f2b68}\label{namespacevar__nei_aaf4b67486f23af1e4e9c90fe803f2b68}} 
 \index{var\_nei@{var\_nei}!pollon@{pollon}}
 \index{pollon@{pollon}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{pollon}{pollon}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::pollon}
+
+
+
+Pole longitude. 
+
+
+
+Definition at line 64 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}\label{namespacevar__nei_afc08bbbc3828538865a8c07e3d65c72f}} 
 \index{var\_nei@{var\_nei}!radm@{radm}}
@@ -363,11 +615,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{radm}{radm}}
 {\footnotesize\ttfamily integer, parameter var\+\_\+nei\+::radm =32}
 
+
+
+Number of chemical species in R\+A\+DM mechanism. 
+
+
+
+Definition at line 18 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a99b4c3f10c0f0cf5a72f39cd68d3189e}\label{namespacevar__nei_a99b4c3f10c0f0cf5a72f39cd68d3189e}} 
 \index{var\_nei@{var\_nei}!sdim@{sdim}}
 \index{sdim@{sdim}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{sdim}{sdim}}
 {\footnotesize\ttfamily character (len=19), dimension(\mbox{\hyperlink{namespacevar__nei_a9ff679832a22d9b43a5ad507eed1953a}{ndims}}) var\+\_\+nei\+::sdim =(/\char`\"{}Time \char`\"{}, \char`\"{}Date\+Str\+Len \char`\"{},\char`\"{}west\+\_\+east \char`\"{},\char`\"{}south\+\_\+north \char`\"{},\char`\"{}bottom\+\_\+top \char`\"{},\char`\"{}emissions\+\_\+zdim\+\_\+stag\char`\"{}/)}
+
+
+
+Dimension description array. 
+
+
+
+Definition at line 82 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a0367bed8cb2c98709f1e668eb3ec5e48}\label{namespacevar__nei_a0367bed8cb2c98709f1e668eb3ec5e48}} 
 \index{var\_nei@{var\_nei}!stdlon@{stdlon}}
@@ -375,11 +643,13 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{stdlon}{stdlon}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::stdlon}
 
-\mbox{\Hypertarget{namespacevar__nei_ad887da7be27ee1ec4275175b6666763d}\label{namespacevar__nei_ad887da7be27ee1ec4275175b6666763d}} 
-\index{var\_nei@{var\_nei}!times@{times}}
-\index{times@{times}!var\_nei@{var\_nei}}
-\doxysubsubsection{\texorpdfstring{times}{times}}
-{\footnotesize\ttfamily character(len=19), dimension(1,1) var\+\_\+nei\+::times}
+
+
+Standard longitude. 
+
+
+
+Definition at line 60 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a3cb5fb7b59d8b25ebb4de07468c596be}\label{namespacevar__nei_a3cb5fb7b59d8b25ebb4de07468c596be}} 
 \index{var\_nei@{var\_nei}!title@{title}}
@@ -387,11 +657,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{title}{title}}
 {\footnotesize\ttfamily character(len=38) var\+\_\+nei\+::title}
 
+
+
+Title from wrfinput file. 
+
+
+
+Definition at line 80 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a416a76e9d15a9c5ab71bf35fae4c1d0b}\label{namespacevar__nei_a416a76e9d15a9c5ab71bf35fae4c1d0b}} 
 \index{var\_nei@{var\_nei}!trulat1@{trulat1}}
 \index{trulat1@{trulat1}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{trulat1}{trulat1}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::trulat1}
+
+
+
+Standard parallel 1. 
+
+
+
+Definition at line 54 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a00978e4557e6ed2bbc13f0d18814748b}\label{namespacevar__nei_a00978e4557e6ed2bbc13f0d18814748b}} 
 \index{var\_nei@{var\_nei}!trulat2@{trulat2}}
@@ -399,11 +685,27 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{trulat2}{trulat2}}
 {\footnotesize\ttfamily real var\+\_\+nei\+::trulat2}
 
+
+
+Standard parallel 2. 
+
+
+
+Definition at line 56 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_ade63ffda52ab9b9488641fab4905a02e}\label{namespacevar__nei_ade63ffda52ab9b9488641fab4905a02e}} 
 \index{var\_nei@{var\_nei}!xlat@{xlat}}
 \index{xlat@{xlat}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{xlat}{xlat}}
 {\footnotesize\ttfamily real, dimension(\+:,\+:,\+:), allocatable var\+\_\+nei\+::xlat}
+
+
+
+Latitude coordinates by nx,ny,nh from wrfinput file. 
+
+
+
+Definition at line 24 of file module\+\_\+var\+\_\+nei.\+F90.
 
 \mbox{\Hypertarget{namespacevar__nei_a2a9d74ef27ef35da3cfc882c8357c7ac}\label{namespacevar__nei_a2a9d74ef27ef35da3cfc882c8357c7ac}} 
 \index{var\_nei@{var\_nei}!xlon@{xlon}}
@@ -411,9 +713,25 @@ Universidad Nacional Autonoma de Mexico
 \doxysubsubsection{\texorpdfstring{xlon}{xlon}}
 {\footnotesize\ttfamily real, dimension(\+:,\+:,\+:), allocatable var\+\_\+nei\+::xlon}
 
+
+
+Longitude coordinates by nx,ny,nh from wrfinput file. 
+
+
+
+Definition at line 26 of file module\+\_\+var\+\_\+nei.\+F90.
+
 \mbox{\Hypertarget{namespacevar__nei_a5117ea5c547d9e25bdaa90b582225443}\label{namespacevar__nei_a5117ea5c547d9e25bdaa90b582225443}} 
 \index{var\_nei@{var\_nei}!zlev@{zlev}}
 \index{zlev@{zlev}!var\_nei@{var\_nei}}
 \doxysubsubsection{\texorpdfstring{zlev}{zlev}}
 {\footnotesize\ttfamily integer var\+\_\+nei\+::zlev}
+
+
+
+Emission Layer. 
+
+
+
+Definition at line 10 of file module\+\_\+var\+\_\+nei.\+F90.
 
