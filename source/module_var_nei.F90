@@ -1,35 +1,88 @@
-!
 !   module_var_nei.f90
-!
-!
-!   Created by Agustin Garcia on 25/04/18.
-!   Copyright 2018 Universidad Nacional Autonoma de Mexico. All rights reserved.
-!
+!>  @brief Emissions Inventorie Variables
+!>  @author Jose Agustin Garcia Reynoso
+!>  @date 25/04/2018
+!>  @version  1.0
+!>  @copyright Universidad Nacional Autonoma de Mexico
+!>
 module var_nei
-! Emissions Inventories Variables
-  integer :: zlev       ! Emission Layer
-  integer :: hh,NRADM
+!> Emission Layer
+  integer :: zlev
+!> Start hour in binary emissions file
+  integer :: hh
+!> Number of chemical species in netcdf emissions file
+  integer :: NRADM
+!> Number of hours in a day
   integer,parameter :: nh=24
+!> Number of chemical species in RADM mechanism
   integer,parameter :: radm=32
+!> Number dimensions to be stored in netcdf output file
   integer,parameter :: NDIMS=6
-  real,allocatable:: EMISS3D(:,:,:,:,:) ! emissions by nx,ny,level,nh,radm
-  real,allocatable:: dlat(:,:),dlon(:,:)     ! by nx,ny from NEW DOMAIN
-  real,allocatable ::xlon(:,:,:),xlat(:,:,:)! by nx,ny,nh emissions
-  integer:: grid_id
-  integer:: julyr,julday,mapproj,iswater,islake,isice,isurban,isoilwater
-  real :: cenlat,cenlon, dx,dy
-  real :: trulat1, trulat2,moadcenlat,stdlon,pollat,pollon
-  real :: gmt,num_land_cat
-  character(len=3) :: cday
+!> emissions by nx,ny,level,nh,radm
+  real,allocatable:: EMISS3D(:,:,:,:,:)
+!> Latitude coordinates by nx,ny,nh from wrfinput file
+  real,allocatable:: xlat(:,:,:)
+!> Longitude coordinates by nx,ny,nh from wrfinput file
+  real,allocatable::xlon(:,:,:)
+!> Domain ID from wrfinput file and used in output file.
+  integer :: grid_id
+!> julian year global attribure from wrfinput file and used in output file.
+  integer :: julyr
+!> julian day global attribure from wrfinput file and used in output file.
+  integer :: julday
+!> Map projection ID global attribure from wrfinput file and used in output file.
+  integer ::mapproj
+!> Water ID global attribure from wrfinput file and used in output file.
+  integer :: iswater
+!> Lake ID global attribure from wrfinput file and used in output file.
+  integer :: islake
+!> Ice ID global attribure from wrfinput file and used in output file.
+  integer :: isice
+!> Urban ID global attribure from wrfinput file and used in output file.
+  integer :: isurban
+!> Water-soil ID global attribure from wrfinput file and used in output file.
+  integer :: isoilwater
+!> Projection central latitude
+  real :: cenlat
+!> Projection central longitude
+  real :: cenlon
+!> Grid size (m) in W-E direction
+  real ::  dx
+!> Grid size (m) in S-N direction
+  real ::  dy
+!> Standard parallel 1
+  real :: trulat1
+!> Standard parallel 2
+  real :: trulat2
+!> Mother of all domains center latitude
+  real :: moadcenlat
+!> Standard  longitude
+  real :: stdlon
+!> Pole latitude.
+  real :: pollat
+!> Pole longitude.
+  real :: pollon
+!> Time zone
+  real :: gmt
+!> Land cover categories number
+  real:: num_land_cat
+!> Day of the week
+  character(len=10) :: cday
+!> Emissions name in binary file
   CHARACTER (len= 9), allocatable :: ENAME1(:)
+!> Emissions name in output netcdf file
   CHARACTER (len=10), allocatable :: ENAME(:)
-  character(len=19)::mminlu,map_proj_char
-  character(len=19):: iTime
+!> Source of land use data
+  character(len=19)::mminlu
+!> Projection description
+  character(len=19)::cmap_proj_char
+!> Title from wrfinput file
   character(len=38):: Title
-  character(len=19),dimension(1,1)::Times
+!> Dimension description array
   character (len=19),dimension(NDIMS) ::sdim=(/"Time               ",&
   & "DateStrLen         ","west_east          ","south_north        ",&
   &"bottom_top         ","emissions_zdim_stag"/)
+!> Chemical mechanism variable emissions description
   character(len= 19),dimension(radm):: cname=(/'Sulfur Dioxide  ',&
   'Nitrogen oxide  ','Aldehydes       ','HCHO            ','Acetic Acid     ',&
   'Ammonia         ','Butanes         ','Pentanes        ','Alkane          ',&
@@ -39,14 +92,18 @@ module var_nei
   'PM25J           ','SulfatesI       ','SulfatesJ       ','Nitrates        ',&
   'NitratesJ       ','OrganicI        ','OrganicJ        ','Elemental Carb I',&
   'Elemental Carb J','PM_10           ','Nitrogen Dioxide'/)
-  character (len=19) :: current_date,mecha
+!> Date in wrfiput file
+  character (len=19) :: current_date
+!> mechanism name
+  character (len=19) ::mecha
 
   ! Domain Variables
   common /domain/ NRADM,zlev,dx,dy,Title,sdim
-  common /date/ hh,id_grid,current_date,cday,mecha,cname,Times
-  common /wrf/ julyr,julday,mapproj,iswater,islake,isice,isurban,isoilwater,&
+  common /date/ hh,id_grid,current_date,cday,mecha,cname
+  common /wrfc/ cmap_proj_char,mminlu
+  common /wrfr/ julyr,julday,mapproj,iswater,islake,isice,isurban,isoilwater,&
   cenlat,cenlon,trulat1, trulat2,moadcenlat,stdlon,pollat,pollon,num_land_cat,&
-  gmt,mminlu,map_proj_char
+  gmt
 
 contains
   !       _               _

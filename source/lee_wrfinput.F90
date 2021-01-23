@@ -1,6 +1,6 @@
 !
 !   lee_wrfinput.f90
-!   
+!
 !
 !   Created by Agustin Garcia on 26/04/18.
 !   Copyright 2018 Universidad Nacional Autonoma de Mexico. All rights reserved.
@@ -13,8 +13,8 @@ use netcdf
 use var_nei
 implicit none
   integer i,j
-  integer ncid,lat_varid,lon_varid,btDimID
-  integer land_catID,dimlon,dimlat
+  integer ncid,lat_varid,lon_varid
+  integer dimlon,dimlat
   integer latVarId,lonVarId
   integer,dimension(6) ::dim
   character (len=20 ) :: name
@@ -26,17 +26,7 @@ implicit none
   call check(nf90_open("wrfinput", NF90_NOWRITE, ncid))
   call check(nf90_inq_dimid(ncid, "south_north", lat_varid))
   call check(nf90_inq_dimid(ncid, "west_east", lon_varid))
-  if (nf90_inq_dimid(ncid, "bottom_top",btDimID).eq.nf90_noerr)then
-  print *,'   Dimension bottom_top'
-  else
-  print *,"   NO dimension bottom_top"
-  end if
-  if(nf90_inq_dimid(ncid,"land_cat",land_catID).eq.nf90_noerr) then
-  print *,'   Dimension land_cat'
-  else
-  call check(nf90_inq_dimid(ncid,"land_cat_stag",land_catID))
-  print *,"   Dimension land_cat_stag"
-  end if
+
   ! Dimensiones
   call check(nf90_inquire_dimension(ncid, lon_varid,name,dimlon))
   !print *,dimlon,name
@@ -47,20 +37,20 @@ implicit none
   if(.not.ALLOCATED(XLAT)) allocate (XLAT(dimlon ,dimlat,1))
 
   if(nf90_inq_varid(ncid, "XLAT_M", latVarId).eq. nf90_noerr) then
-  print *,"XLAT_M"
+  print *," Reading variable XLAT_M"
   else
   call check(nf90_inq_varid(ncid, "XLAT", latVarId))
-  print *,"XLAT"
+  print *," Reading variable XLAT"
   end if
   if(nf90_inq_varid(ncid, "XLONG_M", lonVarId).eq. nf90_noerr) then
-  print *,"XLONG_M"
+  print *," Reading variable XLONG_M"
   else
   call check(nf90_inq_varid(ncid, "XLONG", lonVarId))
-  print *,"XLONG"
+  print *," Reading variable XLONG"
   end if
   call check(nf90_get_var(ncid, latVarId,xlat,start=(/1,1,1/),count=(/dimlon,dimlat,1/)))
   call check(nf90_get_var(ncid, lonVarId,xlon,start=(/1,1,1/),count=(/dimlon,dimlat,1/)))
-  print *,'  Reading Global Attribiutes'
+  print *,'  ****** Reading Global Attribiutes   *****'
   call check( nf90_get_att(ncid, nf90_global, "DX", dx))
   call check( nf90_get_att(ncid, nf90_global, "DY", dy))
   call check( nf90_get_att(ncid, nf90_global, "CEN_LAT",cenlat))
@@ -75,7 +65,7 @@ implicit none
   call check( nf90_get_att(ncid, nf90_global, "JULYR",julyr))
   call check( nf90_get_att(ncid, nf90_global, "JULDAY",julday))
   call check( nf90_get_att(ncid, nf90_global, "MAP_PROJ",mapproj))
-  call check( nf90_get_att(ncid, nf90_global, "MAP_PROJ_CHAR",map_proj_char))
+  call check( nf90_get_att(ncid, nf90_global, "MAP_PROJ_CHAR",cmap_proj_char))
   call check( nf90_get_att(ncid, nf90_global, "MMINLU",mminlu))
   call check( nf90_get_att(ncid, nf90_global, "ISWATER",iswater))
   call check( nf90_get_att(ncid, nf90_global, "ISLAKE",islake))
@@ -89,5 +79,14 @@ implicit none
   !print *,XLON(1,1,1),XLON(2,1,1),XLON(3,1,1)
   call check( nf90_close(ncid) )
   print * ,'* Done reading wrfinput file'
-
+  print *,"    ****** Checking dimensions   *****"
+    print *,"   Longitude size in wrfinput", dimlon
+    print *,"   IX in domain.nml",size(EMISS3D,1)
+    print *,"   Latitude size in wrfinput", dimlat
+    print *,"   IY in domain.nml",size(EMISS3D,3)
+    if (size(EMISS3D,3).ne.dimlat .or.size(EMISS3d,1).ne.dimlon) then
+      print *,"******  Dimensions do not mach review domain.nml file ****"
+      print *,"******  or eview wrfinput file selected               ****"
+      stop
+    end if
 end subroutine lee_wrfinput
