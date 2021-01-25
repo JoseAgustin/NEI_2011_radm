@@ -6,6 +6,10 @@ AT_BANNER(["Testing functions"])
 AT_SETUP([Functions check nml_read])
 AT_TESTED([test1 test2])
 AT_CLEANUP
+AT_BANNER(["Testing subroutines"])
+AT_SETUP([Subroutines lee_NEI])
+AT_TESTED([test3])
+AT_CLEANUP
 
 AT_COPYRIGHT(
 [Copyright (C) Universidad Nacional Autonoma de Mexico])

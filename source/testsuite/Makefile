@@ -85,8 +85,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-TESTS = test1$(EXEEXT) test2$(EXEEXT)
-check_PROGRAMS = test1$(EXEEXT) test2$(EXEEXT)
+TESTS = test1$(EXEEXT) test2$(EXEEXT) test3$(EXEEXT)
+check_PROGRAMS = test1$(EXEEXT) test2$(EXEEXT) test3$(EXEEXT)
 subdir = testsuite
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -102,9 +102,14 @@ am_test1_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
 test1_OBJECTS = $(am_test1_OBJECTS)
 test1_LDADD = $(LDADD)
 am_test2_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
-	test_nml.$(OBJEXT)
+	crea_nml.$(OBJEXT) test_nml.$(OBJEXT)
 test2_OBJECTS = $(am_test2_OBJECTS)
 test2_LDADD = $(LDADD)
+am_test3_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
+	$(top_builddir)/lee_NEI.$(OBJEXT) crea_nml.$(OBJEXT) \
+	t_leebin.$(OBJEXT)
+test3_OBJECTS = $(am_test3_OBJECTS)
+test3_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -131,8 +136,8 @@ AM_V_FCLD = $(am__v_FCLD_$(V))
 am__v_FCLD_ = $(am__v_FCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_FCLD_0 = @echo "  FCLD    " $@;
 am__v_FCLD_1 = 
-SOURCES = $(test1_SOURCES) $(test2_SOURCES)
-DIST_SOURCES = $(test1_SOURCES) $(test2_SOURCES)
+SOURCES = $(test1_SOURCES) $(test2_SOURCES) $(test3_SOURCES)
+DIST_SOURCES = $(test1_SOURCES) $(test2_SOURCES) $(test3_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -467,7 +472,9 @@ top_builddir = ..
 top_srcdir = ..
 AM_FCFLAGS = $(NC_INC) -I$(top_srcdir) $(NC_LIB)
 test1_SOURCES = $(top_builddir)/module_var_nei.F90 t_check.F90
-test2_SOURCES = $(top_builddir)/module_var_nei.F90 test_nml.F90
+test2_SOURCES = $(top_builddir)/module_var_nei.F90 crea_nml.F90 test_nml.F90
+test3_SOURCES = $(top_builddir)/module_var_nei.F90 \
+	$(top_builddir)/lee_NEI.F90 crea_nml.F90 t_leebin.F90
 
 # Additional files to be cleaned with 'make clean'
 CLEANFILES = *.o *.mod package.m4 testsuite
@@ -527,6 +534,12 @@ test1$(EXEEXT): $(test1_OBJECTS) $(test1_DEPENDENCIES) $(EXTRA_test1_DEPENDENCIE
 test2$(EXEEXT): $(test2_OBJECTS) $(test2_DEPENDENCIES) $(EXTRA_test2_DEPENDENCIES) 
 	@rm -f test2$(EXEEXT)
 	$(AM_V_FCLD)$(FCLINK) $(test2_OBJECTS) $(test2_LDADD) $(LIBS)
+$(top_builddir)/lee_NEI.$(OBJEXT): $(top_builddir)/$(am__dirstamp) \
+	$(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+
+test3$(EXEEXT): $(test3_OBJECTS) $(test3_DEPENDENCIES) $(EXTRA_test3_DEPENDENCIES) 
+	@rm -f test3$(EXEEXT)
+	$(AM_V_FCLD)$(FCLINK) $(test3_OBJECTS) $(test3_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -744,6 +757,13 @@ test1.log: test1$(EXEEXT)
 test2.log: test2$(EXEEXT)
 	@p='test2$(EXEEXT)'; \
 	b='test2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test3.log: test3$(EXEEXT)
+	@p='test3$(EXEEXT)'; \
+	b='test3'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \

@@ -50,7 +50,7 @@ implicit none
     do n=1,NRADM
     read(19) (((EMISS3D(i,k,j,n,ii),i=1,ix),k=1,kx),j=1,jx)
     !if(hr.eq.12) print *,ename(n)!
-    if( ename(n).eq."E_NO") then
+    if( ename(n).eq."E_NO".or.ename(n).eq."e_no") then
         do i=1,ix
             do j=1,jx
                 do k=1,kx
