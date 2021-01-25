@@ -7,6 +7,7 @@
 program nml_read
   use var_nei
   integer ::IX,JX,KX
+  call crea_nml
   call lee_nml(IX,JX,KX)
   write(6,'(3(I4))') IX,JX,KX
 end program

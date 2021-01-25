@@ -7,9 +7,10 @@
 !>  @copyright Universidad Nacional Autonoma de Mexico
 program test_read_NEI
    use var_nei
-
+   
    call crea_nml
    call crea_data
+   HH=0
    call lee_NEI
    call borra
 
