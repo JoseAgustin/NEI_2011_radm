@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sdim_106',['sdim',['../namespacevar__nei.html#a99b4c3f10c0f0cf5a72f39cd68d3189e',1,'var_nei']]],
-  ['stdlon_107',['stdlon',['../namespacevar__nei.html#a0367bed8cb2c98709f1e668eb3ec5e48',1,'var_nei']]]
+  ['sdim_98',['sdim',['../namespacevar__nei.html#a99b4c3f10c0f0cf5a72f39cd68d3189e',1,'var_nei']]],
+  ['stdlon_99',['stdlon',['../namespacevar__nei.html#a0367bed8cb2c98709f1e668eb3ec5e48',1,'var_nei']]]
 ];

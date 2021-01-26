@@ -7,8 +7,8 @@ AT_SETUP([Functions check nml_read])
 AT_TESTED([test1 test2])
 AT_CLEANUP
 AT_BANNER(["Testing subroutines"])
-AT_SETUP([Subroutines lee_NEI])
-AT_TESTED([test3])
+AT_SETUP([Subroutines lee_NEI lee_netcdf])
+AT_TESTED([test3 test4])
 AT_CLEANUP
 
 AT_COPYRIGHT(
