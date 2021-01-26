@@ -1,13 +1,17 @@
 !
 !   lee_wrfinput.f90
-!
-!
-!   Created by Agustin Garcia on 26/04/18.
-!   Copyright 2018 Universidad Nacional Autonoma de Mexico. All rights reserved.
-!
-!   Lee archivos netcdf de wrfinput
-!     26 abril para RADM
-!
+!>  @brief Reads wrfinput netcdf file.
+!>  @details Obtains dimensions and global attributes
+!>  @author Jose Agustin Garcia Reynoso
+!>  @date 25/01/2021
+!>  @version  1.0
+!>  @copyright Universidad Nacional Autonoma de Mexico
+!  _                            __ _                   _
+! | | ___  ___  __      ___ __ / _(_)_ __  _ __  _   _| |_
+! | |/ _ \/ _ \ \ \ /\ / / '__| |_| | '_ \| '_ \| | | | __|
+! | |  __/  __/  \ V  V /| |  |  _| | | | | |_) | |_| | |_
+! |_|\___|\___|___\_/\_/ |_|  |_| |_|_| |_| .__/ \__,_|\__|
+!            |_____|                      |_|              
 subroutine lee_wrfinput
 use netcdf
 use var_nei
