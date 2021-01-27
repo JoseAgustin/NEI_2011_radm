@@ -6,5 +6,10 @@
 *.log
 *.exe
 source/testsuite/test*
+wrfchemi_00z_d01
+package.m4
+autom4te.cache
+.deps
+.dirstamp
 data
 config.status

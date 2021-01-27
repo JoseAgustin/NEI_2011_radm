@@ -104,7 +104,7 @@ am_test1_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
 test1_OBJECTS = $(am_test1_OBJECTS)
 test1_LDADD = $(LDADD)
 am_test2_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
-	crea_nml.$(OBJEXT) test_nml.$(OBJEXT)
+	crea_nml.$(OBJEXT) t_readnml.$(OBJEXT)
 test2_OBJECTS = $(am_test2_OBJECTS)
 test2_LDADD = $(LDADD)
 am_test3_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
@@ -487,7 +487,7 @@ top_builddir = ..
 top_srcdir = ..
 AM_FCFLAGS = $(NC_INC) -I$(top_srcdir) $(NC_LIB)
 test1_SOURCES = $(top_builddir)/module_var_nei.F90 t_check.F90
-test2_SOURCES = $(top_builddir)/module_var_nei.F90 crea_nml.F90 test_nml.F90
+test2_SOURCES = $(top_builddir)/module_var_nei.F90 crea_nml.F90 t_readnml.F90
 test3_SOURCES = $(top_builddir)/module_var_nei.F90 \
 	$(top_builddir)/lee_NEI.F90 crea_nml.F90 crea_data.F90 \
 	t_leebin.F90
