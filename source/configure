@@ -582,7 +582,7 @@ PACKAGE_TARNAME='mobil_time'
 PACKAGE_VERSION='1.0'
 PACKAGE_STRING='nei_2011_radm 1.0'
 PACKAGE_BUGREPORT='agustin@atmosfera.unam.mx'
-PACKAGE_URL='https://github.com/JoseAgustin/nei_2011_radm'
+PACKAGE_URL='https://github.com/JoseAgustin/NEI_2011_radm'
 
 ac_default_prefix=`pwd`
 ac_subst_vars='am__EXEEXT_FALSE
@@ -1343,7 +1343,7 @@ Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
 
 Report bugs to <agustin@atmosfera.unam.mx>.
-nei_2011_radm home page: <https://github.com/JoseAgustin/nei_2011_radm>.
+nei_2011_radm home page: <https://github.com/JoseAgustin/NEI_2011_radm>.
 _ACEOF
 ac_status=$?
 fi
@@ -4822,7 +4822,7 @@ Configuration commands:
 $config_commands
 
 Report bugs to <agustin@atmosfera.unam.mx>.
-nei_2011_radm home page: <https://github.com/JoseAgustin/nei_2011_radm>."
+nei_2011_radm home page: <https://github.com/JoseAgustin/NEI_2011_radm>."
 
 _ACEOF
 cat >>$CONFIG_STATUS <<_ACEOF || ac_write_fail=1

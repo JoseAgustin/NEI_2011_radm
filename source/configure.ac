@@ -7,7 +7,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([nei_2011_radm], [1.0], [agustin@atmosfera.unam.mx],[mobil_time],[https://github.com/JoseAgustin/nei_2011_radm])
+AC_INIT([nei_2011_radm], [1.0], [agustin@atmosfera.unam.mx],[mobil_time],[https://github.com/JoseAgustin/NEI_2011_radm])
 # Define our M4 macro directory
 AC_CONFIG_AUX_DIR([autoconf])
 AM_INIT_AUTOMAKE([1.11 foreign subdir-objects])

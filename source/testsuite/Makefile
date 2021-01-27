@@ -85,9 +85,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-TESTS = test1$(EXEEXT) test2$(EXEEXT) test3$(EXEEXT) test4$(EXEEXT)
+TESTS = test1$(EXEEXT) test2$(EXEEXT) test3$(EXEEXT) test4$(EXEEXT) \
+	test5$(EXEEXT)
 check_PROGRAMS = test1$(EXEEXT) test2$(EXEEXT) test3$(EXEEXT) \
-	test4$(EXEEXT)
+	test4$(EXEEXT) test5$(EXEEXT)
 subdir = testsuite
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -108,13 +109,20 @@ test2_OBJECTS = $(am_test2_OBJECTS)
 test2_LDADD = $(LDADD)
 am_test3_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
 	$(top_builddir)/lee_NEI.$(OBJEXT) crea_nml.$(OBJEXT) \
-	t_leebin.$(OBJEXT)
+	crea_data.$(OBJEXT) t_leebin.$(OBJEXT)
 test3_OBJECTS = $(am_test3_OBJECTS)
 test3_LDADD = $(LDADD)
 am_test4_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
 	$(top_builddir)/lee_wrfinput.$(OBJEXT) t_leentcd.$(OBJEXT)
 test4_OBJECTS = $(am_test4_OBJECTS)
 test4_LDADD = $(LDADD)
+am_test5_OBJECTS = $(top_builddir)/module_var_nei.$(OBJEXT) \
+	$(top_builddir)/lee_NEI.$(OBJEXT) \
+	$(top_builddir)/lee_wrfinput.$(OBJEXT) \
+	$(top_builddir)/guarda.$(OBJEXT) crea_nml.$(OBJEXT) \
+	crea_data.$(OBJEXT) t_guarda.$(OBJEXT)
+test5_OBJECTS = $(am_test5_OBJECTS)
+test5_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -142,9 +150,9 @@ am__v_FCLD_ = $(am__v_FCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_FCLD_0 = @echo "  FCLD    " $@;
 am__v_FCLD_1 = 
 SOURCES = $(test1_SOURCES) $(test2_SOURCES) $(test3_SOURCES) \
-	$(test4_SOURCES)
+	$(test4_SOURCES) $(test5_SOURCES)
 DIST_SOURCES = $(test1_SOURCES) $(test2_SOURCES) $(test3_SOURCES) \
-	$(test4_SOURCES)
+	$(test4_SOURCES) $(test5_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -376,13 +384,13 @@ TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
 am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/autoconf/test-driver
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing aclocal-1.16
+ACLOCAL = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/missing aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing autoconf
-AUTOHEADER = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing autoheader
+AUTOCONF = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/missing autoconf
+AUTOHEADER = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/missing autoheader
 AUTOM4TE = $(SHELL) $(top_srcdir)/autoconf/missing --run autom4te
-AUTOMAKE = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing automake-1.16
+AUTOMAKE = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/missing automake-1.16
 AWK = awk
 CC = gcc
 CCDEPMODE = depmode=none
@@ -390,7 +398,7 @@ CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"nei_2011_radm\" -DPACKAGE_TARNAME=\"mobil_time\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"nei_2011_radm\ 1.0\" -DPACKAGE_BUGREPORT=\"agustin@atmosfera.unam.mx\" -DPACKAGE_URL=\"https://github.com/JoseAgustin/nei_2011_radm\" -DPACKAGE=\"mobil_time\" -DVERSION=\"1.0\"
+DEFS = -DPACKAGE_NAME=\"nei_2011_radm\" -DPACKAGE_TARNAME=\"mobil_time\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"nei_2011_radm\ 1.0\" -DPACKAGE_BUGREPORT=\"agustin@atmosfera.unam.mx\" -DPACKAGE_URL=\"https://github.com/JoseAgustin/NEI_2011_radm\" -DPACKAGE=\"mobil_time\" -DVERSION=\"1.0\"
 DEPDIR = .deps
 ECHO_C = \c
 ECHO_N = 
@@ -412,7 +420,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/missing makeinfo
+MAKEINFO = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/missing makeinfo
 MKDIR_P = ../autoconf/install-sh -c -d
 NC_FC = /usr/local/bin/gfortran 
 NC_INC = -I/usr/local/Cellar/netcdf/4.7.4_1/include
@@ -427,17 +435,17 @@ PACKAGE_BUGREPORT = agustin@atmosfera.unam.mx
 PACKAGE_NAME = nei_2011_radm
 PACKAGE_STRING = nei_2011_radm 1.0
 PACKAGE_TARNAME = mobil_time
-PACKAGE_URL = https://github.com/JoseAgustin/nei_2011_radm
+PACKAGE_URL = https://github.com/JoseAgustin/NEI_2011_radm
 PACKAGE_VERSION = 1.0
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
 VERSION = 1.0
-abs_builddir = /Users/agustin/proyectos/NEI_2011_radm/source/testsuite
-abs_srcdir = /Users/agustin/proyectos/NEI_2011_radm/source/testsuite
-abs_top_builddir = /Users/agustin/proyectos/NEI_2011_radm/source
-abs_top_srcdir = /Users/agustin/proyectos/NEI_2011_radm/source
+abs_builddir = /Users/agus/proyectos/CIGOM/NEI_2011/source/testsuite
+abs_srcdir = /Users/agus/proyectos/CIGOM/NEI_2011/source/testsuite
+abs_top_builddir = /Users/agus/proyectos/CIGOM/NEI_2011/source
+abs_top_srcdir = /Users/agus/proyectos/CIGOM/NEI_2011/source
 ac_ct_CC = gcc
 ac_ct_FC = gfortran
 am__include = include
@@ -457,7 +465,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/agustin/proyectos/NEI_2011_radm/source/autoconf/install-sh
+install_sh = ${SHELL} /Users/agus/proyectos/CIGOM/NEI_2011/source/autoconf/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -466,7 +474,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /Users/agustin/proyectos/NEI_2011_radm/source
+prefix = /Users/agus/proyectos/CIGOM/NEI_2011/source
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -481,9 +489,14 @@ AM_FCFLAGS = $(NC_INC) -I$(top_srcdir) $(NC_LIB)
 test1_SOURCES = $(top_builddir)/module_var_nei.F90 t_check.F90
 test2_SOURCES = $(top_builddir)/module_var_nei.F90 crea_nml.F90 test_nml.F90
 test3_SOURCES = $(top_builddir)/module_var_nei.F90 \
-	$(top_builddir)/lee_NEI.F90 crea_nml.F90 t_leebin.F90
+	$(top_builddir)/lee_NEI.F90 crea_nml.F90 crea_data.F90 \
+	t_leebin.F90
 test4_SOURCES = $(top_builddir)/module_var_nei.F90 \
 	$(top_builddir)/lee_wrfinput.F90 t_leentcd.F90
+test5_SOURCES = $(top_builddir)/module_var_nei.F90 \
+	$(top_builddir)/lee_NEI.F90 $(top_builddir)/lee_wrfinput.F90 \
+	$(top_builddir)/guarda.F90 crea_nml.F90 crea_data.F90 \
+	t_guarda.F90
 
 # Additional files to be cleaned with 'make clean'
 CLEANFILES = *.o *.mod package.m4 testsuite
@@ -556,6 +569,12 @@ $(top_builddir)/lee_wrfinput.$(OBJEXT):  \
 test4$(EXEEXT): $(test4_OBJECTS) $(test4_DEPENDENCIES) $(EXTRA_test4_DEPENDENCIES) 
 	@rm -f test4$(EXEEXT)
 	$(AM_V_FCLD)$(FCLINK) $(test4_OBJECTS) $(test4_LDADD) $(LIBS)
+$(top_builddir)/guarda.$(OBJEXT): $(top_builddir)/$(am__dirstamp) \
+	$(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+
+test5$(EXEEXT): $(test5_OBJECTS) $(test5_DEPENDENCIES) $(EXTRA_test5_DEPENDENCIES) 
+	@rm -f test5$(EXEEXT)
+	$(AM_V_FCLD)$(FCLINK) $(test5_OBJECTS) $(test5_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -791,6 +810,13 @@ test4.log: test4$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test5.log: test5$(EXEEXT)
+	@p='test5$(EXEEXT)'; \
+	b='test5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 .test.log:
 	@p='$<'; \
 	$(am__set_b); \
@@ -984,7 +1010,7 @@ $(srcdir)/package.m4: $(top_srcdir)/configure.ac
 	echo 'm4_define([AT_PACKAGE_BUGREPORT],' && \
 	echo '  [agustin@atmosfera.unam.mx])'; \
 	echo 'm4_define([AT_PACKAGE_URL],' && \
-	echo '  [https://github.com/JoseAgustin/nei_2011_radm])'; \
+	echo '  [https://github.com/JoseAgustin/NEI_2011_radm])'; \
 	}>'$(srcdir)/package.m4'
 
 check-local: atconfig  $(TESTSUITE)
