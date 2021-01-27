@@ -77,7 +77,6 @@ subroutine guarda_emisiones
   dimids2 = (/id_dim(2),id_dim(1)/)
   dimids3 = (/id_dim(3),id_dim(2),id_dim(1) /)
   dimids4 = (/id_dim(3),id_dim(4),id_dim(6),id_dim(1)/)
-
   !Attributos Globales NF90_GLOBAL
   call check( nf90_put_att(ncid, NF90_GLOBAL, "TITLE",TITLE))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "START_DATE",current_date))
@@ -109,7 +108,27 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, nf90_global, "NUM_LAND_CAT",num_land_cat))
   call check( nf90_put_att(ncid, nf90_global, "ISOILWATER",isoilwater))
   call check( nf90_put_att(ncid, nf90_global, "GRID_ID",grid_id))
-  call check( nf90_put_att(ncid, NF90_GLOBAL, "MECHANISM","MOZART"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "MECHANISM","RADM"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "creator_institution", "Centro de Ciencias de la Atmosfera, UNAM"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_type","institution"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"contributor_name","Agustin Garcia, agustin@atmosfera.unam.mx"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"contributor_role","Researcher"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"cdm_data_type","Grid"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"acknowledgment","Centro de Ciencias de la Atmosfera, UNAM"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_institution","CCA,UNAM"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_url","www.atmosfera.unam.mx"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_type","institution"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_issued","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_modified","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_metadata_modified","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_start","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_end","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_duration","PT12H"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_resolution","PT1H"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_units","degrees_east"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_units","degrees_north"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"product_version","1.0"))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "CREATION_DATE",hoy))
   !  Define las variables
   call check( nf90_def_var(ncid, "Times", NF90_CHAR, dimids2,id_unlimit ) )
@@ -208,7 +227,7 @@ contains
   subroutine crea_attr(ncid,ifl,dimids,svar,cname,cunits,id_var)
   use netcdf
       implicit none
-      integer , INTENT(IN) ::ncid,ifl
+      integer, INTENT(IN) ::ncid,ifl
       integer, INTENT(out) :: id_var
       integer, INTENT(IN),dimension(:):: dimids
       character(len=*), INTENT(IN)::svar,cname,cunits
