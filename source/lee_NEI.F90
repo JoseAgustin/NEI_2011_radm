@@ -64,16 +64,20 @@ implicit none
   end do !IHOUR
   close (19)
 contains
-
+!>  @brief Converting text from lower to uppercase
+!>  @details Adapted from http://www.star.le.ac.uk/~cgp/fortran.html
+!>  @date 25 May 2012
+!>  @author Clive Page, modified by:Milan Curcic
+!>  @version  2.0
+!>  @param strIn text to be converted to uppecase
+!  _
+! | |_ ___    _   _ _ __  _ __   ___ _ __
+! | __/ _ \  | | | | '_ \| '_ \ / _ \ '__|
+! | || (_) | | |_| | |_) | |_) |  __/ |
+!  \__\___/___\__,_| .__/| .__/ \___|_|
+!        |_____|   |_|   |_|
 function to_upper(strIn) result(strOut)
-!> @brief Converting text from lower to uppercase
-!> @detail Adapted from http://www.star.le.ac.uk/~cgp/fortran.html
-!> @date 25 May 2012
-!> @author Original author: Clive Page,  modify by:Milan Curcic
-!> @version  2.0
-
      implicit none
-
      character(len=*), intent(in) :: strIn
      character(len=len(strIn)) :: strOut
      integer :: i,j
