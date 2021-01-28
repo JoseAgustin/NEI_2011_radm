@@ -140,6 +140,7 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, id_varlong, "MemoryOrder", "XYZ") )
   call check( nf90_put_att(ncid, id_varlong, "description", "LONGITUDE, WEST IS NEGATIVE") )
   call check( nf90_put_att(ncid, id_varlong, "units", "degree_east"))
+  call check( nf90_put_att(ncid, id_varlong, "standard_name", "longitude"))
   call check( nf90_put_att(ncid, id_varlong, "axis", "X") )
   call check( nf90_def_var(ncid, "XLAT", NF90_REAL,(/id_dim(3),id_dim(4),id_dim(1)/),id_varlat ) )
   ! Assign  attributes
@@ -147,11 +148,12 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, id_varlat, "MemoryOrder", "XYZ") )
   call check( nf90_put_att(ncid, id_varlat, "description", "LATITUDE, SOUTH IS NEGATIVE") )
   call check( nf90_put_att(ncid, id_varlat, "units", "degree_north"))
+  call check( nf90_put_att(ncid, id_varlat, "standard_name", "latitude"))
   call check( nf90_put_att(ncid, id_varlat, "axis", "Y") )
 
   do i=1,nradm+1
   if(i.lt.29 .or.i.gt.41) then
-  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"g km^-2 s^-1",id_var(i))
+  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"mol km^-2 s^-1",id_var(i))
   else
   call crea_attr(ncid,1,dimids4,ename(i),cname(i),"ug m-2 s-1",id_var(i))
   end if
@@ -232,9 +234,9 @@ contains
       integer, INTENT(out) :: id_var
       integer, INTENT(IN),dimension(:):: dimids
       character(len=*), INTENT(IN)::svar,cname,cunits
-      character(len=50) :: cvar
+      character(len=60) :: cvar
       if (ifl.eq.0)cvar="temporal_profile "//trim(cname)
-      if (ifl.eq.1) cvar="Flux "//trim(cname)
+      if (ifl.eq.1) cvar="surface_upward_mole_flux_of_"//trim(cname)
       if (ifl.eq.2) cvar="Number vehicles type "//trim(cname)
       call check( nf90_def_var(ncid, svar, NF90_REAL, dimids,id_var ) )
       ! Assign  attributes
