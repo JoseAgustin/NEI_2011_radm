@@ -1,6 +1,6 @@
 !
 !   guarda.f90
-!>  @brief Stores emissions in radm categories in netcdf format
+!>  @brief Stores emissions in RADM categories in NETCDF format
 !>  @author Jose Agustin Garcia Reynoso
 !>  @date 26/04/2018
 !>  @version  1.0
@@ -110,17 +110,29 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, nf90_global, "ISOILWATER",isoilwater))
   call check( nf90_put_att(ncid, nf90_global, "GRID_ID",grid_id))
   call check( nf90_put_att(ncid, NF90_GLOBAL, "MECHANISM","RADM"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL, "creator_institution", "Centro de Ciencias de la Atmosfera, UNAM"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "standard_name_vocabulary", "CF Standard Name Table"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "Conventions", "CF-1.6, Standard Name Table v19,ACDD-1.3"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "keywords_vocabulary", "CF:NetCDF COARDS Climate and Forecast Standard Names"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "keywords", "US emissions, NEI2011,"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "summary", "US emissions for 2011 year for use in WRF-chem with RADM2 mechanism"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "keywords", "US emissions, NEI2011,"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "source", "wrfem_"//FILE_NAME(10:12)//"_d01"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL, "grid_mapping_name", "lambert_conformal_conic"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_name","Agustin Garcia"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_email","agustin@atmosfera.unam.mx"))
+
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_institution", "Centro de Ciencias de la Atmosfera, UNAM"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_type","institution"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"creator_url","https://www.atmosfera.unam.mx"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"contributor_name","Agustin Garcia, agustin@atmosfera.unam.mx"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"contributor_role","Researcher"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"cdm_data_type","Grid"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"id","NEI"//date))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"acknowledgment","Centro de Ciencias de la Atmosfera, UNAM"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_institution","CCA,UNAM"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_url","www.atmosfera.unam.mx"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_url","https://www.atmosfera.unam.mx"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_type","institution"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"date_issued",date_meta))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created",date_meta))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"date_modified",date_meta))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"date_metadata_modified",date_meta))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_start","2021-01-25T10:41:00Z"))
@@ -129,10 +141,21 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_resolution","PT1H"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_units","degrees_east"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_units","degrees_north"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_resolution",DY*1000))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_resolution",DX*1000))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_max",maxval(xlon)))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_min",minval(xlon)))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_max",maxval(xlat)))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_min",minval(xlat)))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"product_version","1.0"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created",date_meta))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"history","Conversion from binary to netcdf"))
+
   !  Define las variables
   call check( nf90_def_var(ncid, "Times", NF90_CHAR, dimids2,id_unlimit ) )
+  call check( nf90_put_att(ncid, id_unlimit, "standard_name", "time"))
+  call check( nf90_put_att(ncid, id_unlimit, "long_name", "Date of initialization"))
+  call check( nf90_put_att(ncid, id_unlimit, "units", "h"))
   !  Attributos para cada variable
   call check( nf90_def_var(ncid, "XLONG", NF90_REAL,(/id_dim(3),id_dim(4),id_dim(1)/),id_varlong ) )
   ! Assign  attributes
@@ -141,6 +164,8 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, id_varlong, "description", "LONGITUDE, WEST IS NEGATIVE") )
   call check( nf90_put_att(ncid, id_varlong, "units", "degree_east"))
   call check( nf90_put_att(ncid, id_varlong, "standard_name", "longitude"))
+  call check( nf90_put_att(ncid, id_varlong, "long_name", "longitude"))
+
   call check( nf90_put_att(ncid, id_varlong, "axis", "X") )
   call check( nf90_def_var(ncid, "XLAT", NF90_REAL,(/id_dim(3),id_dim(4),id_dim(1)/),id_varlat ) )
   ! Assign  attributes
@@ -149,13 +174,14 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, id_varlat, "description", "LATITUDE, SOUTH IS NEGATIVE") )
   call check( nf90_put_att(ncid, id_varlat, "units", "degree_north"))
   call check( nf90_put_att(ncid, id_varlat, "standard_name", "latitude"))
+  call check( nf90_put_att(ncid, id_varlat, "long_name", "latitude"))
   call check( nf90_put_att(ncid, id_varlat, "axis", "Y") )
 
   do i=1,nradm+1
   if(i.lt.29 .or.i.gt.41) then
-  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"mol km^-2 s^-1",id_var(i))
+  call crea_attr(ncid,1,dimids4,ename(i),"mole_flux_of_"//cname(i),"mole km-2 h-1",id_var(i))
   else
-  call crea_attr(ncid,1,dimids4,ename(i),cname(i),"ug m-2 s-1",id_var(i))
+  call crea_attr(ncid,1,dimids4,ename(i),"mass_flux_of_"//cname(i),"ug m-2 s-1",id_var(i))
   end if
   end do
   !
@@ -236,13 +262,14 @@ contains
       character(len=*), INTENT(IN)::svar,cname,cunits
       character(len=60) :: cvar
       if (ifl.eq.0)cvar="temporal_profile "//trim(cname)
-      if (ifl.eq.1) cvar="surface_upward_mole_flux_of_"//trim(cname)
+      if (ifl.eq.1) cvar="surface_upward_"//trim(cname)
       if (ifl.eq.2) cvar="Number vehicles type "//trim(cname)
       call check( nf90_def_var(ncid, svar, NF90_REAL, dimids,id_var ) )
       ! Assign  attributes
       call check( nf90_put_att(ncid, id_var, "FieldType", 104 ) )
       call check( nf90_put_att(ncid, id_var, "MemoryOrder", "XYZ") )
       call check( nf90_put_att(ncid, id_var, "standard_name", cvar) )
+      call check( nf90_put_att(ncid, id_var, "long_name", cvar) )
       call check( nf90_put_att(ncid, id_var, "description", cvar) )
       call check( nf90_put_att(ncid, id_var, "units", cunits))
       call check( nf90_put_att(ncid, id_var, "stagger", "Z") )
