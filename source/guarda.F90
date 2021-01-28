@@ -34,12 +34,13 @@ subroutine guarda_emisiones
   character(len=19),dimension(1,1)::Times
   character(8)  :: date
   character(10) :: time
-  character(19) :: hoy
+  character(20) :: date_meta
   print *,"Guarda Archivo"
   ! ******************************************************************
   call date_and_time(date,time)
-  write(hoy,'(A8,x,A10)')date,time
-  print *,hoy
+  write(date_meta,'(A4,"-",A2,"-",A2,"T",A2,":",A2,":",A2,"Z")') &
+      date(1:4),date(5:6),date(7:8),time(1:2),time(3:4),time(5:6)
+  print *,date_meta
   cday="weekday"
   IF(hh.EQ. 0) THEN
   print *,'PERIODO 1'
@@ -118,10 +119,10 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_institution","CCA,UNAM"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_url","www.atmosfera.unam.mx"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"publisher_type","institution"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_issued","2021-01-25T10:41:00Z"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created","2021-01-25T10:41:00Z"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_modified","2021-01-25T10:41:00Z"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_metadata_modified","2021-01-25T10:41:00Z"))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_issued",date_meta))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created",date_meta))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_modified",date_meta))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_metadata_modified",date_meta))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_start","2021-01-25T10:41:00Z"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_end","2021-01-25T10:41:00Z"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_duration","PT12H"))
@@ -129,7 +130,7 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_units","degrees_east"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_units","degrees_north"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"product_version","1.0"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL, "CREATION_DATE",hoy))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"date_created",date_meta))
   !  Define las variables
   call check( nf90_def_var(ncid, "Times", NF90_CHAR, dimids2,id_unlimit ) )
   !  Attributos para cada variable
