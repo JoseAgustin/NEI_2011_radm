@@ -40,7 +40,7 @@ implicit none
   write(6,'(3x,"Number of emission variables:",I3)') nradm
     ename(NRADM+1)="E_NO2"
   do n=1,NRADM
-    ename(n)=ename1(n)
+    ename(n)=to_upper(ename1(n))
     if(ename1(n).eq."E_CH3COCH") ename(n)="E_CH3COCH3"
   end do
   write(6,'(7(x,A7),A8)') ename
@@ -63,5 +63,29 @@ implicit none
     end do
   end do !IHOUR
   close (19)
+contains
 
+function to_upper(strIn) result(strOut)
+!> @brief Converting text from lower to uppercase
+!> @detail Adapted from http://www.star.le.ac.uk/~cgp/fortran.html
+!> @date 25 May 2012
+!> @author Original author: Clive Page,  modify by:Milan Curcic
+!> @version  2.0
+
+     implicit none
+
+     character(len=*), intent(in) :: strIn
+     character(len=len(strIn)) :: strOut
+     integer :: i,j
+
+     do i = 1, len(strIn)
+          j = iachar(strIn(i:i))
+          if ( iachar("a")<=j .and. j<=iachar("z") ) then
+               strOut(i:i) = achar(iachar(strIn(i:i))-32)
+          else
+               strOut(i:i) = strIn(i:i)
+          end if
+     end do
+
+end function to_upper
 end subroutine lee_NEI
