@@ -34,11 +34,11 @@ subroutine guarda_emisiones
   character(len=19),dimension(1,1)::Times
   character(8)  :: date
   character(10) :: time
-  character(20) :: date_meta
+  character(25) :: date_meta
   print *,"Guarda Archivo"
   ! ******************************************************************
   call date_and_time(date,time)
-  write(date_meta,'(A4,"-",A2,"-",A2,"T",A2,":",A2,":",A2,"Z")') &
+  write(date_meta,'(A4,"-",A2,"-",A2,"T",A2,":",A2,":",A2,"-06:00")') &
       date(1:4),date(5:6),date(7:8),time(1:2),time(3:4),time(5:6)
   print *,date_meta
   cday="weekday"
@@ -141,8 +141,8 @@ subroutine guarda_emisiones
   call check( nf90_put_att(ncid, NF90_GLOBAL,"time_coverage_resolution","PT1H"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_units","degrees_east"))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_units","degrees_north"))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_resolution",DY*1000))
-  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_resolution",DX*1000))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_resolution",DY))
+  call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_resolution",DX))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_max",maxval(xlon)))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lon_min",minval(xlon)))
   call check( nf90_put_att(ncid, NF90_GLOBAL,"geospatial_lat_max",maxval(xlat)))
