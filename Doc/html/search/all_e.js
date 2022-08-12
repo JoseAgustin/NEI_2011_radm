@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['var_5fnei_50',['var_nei',['../namespacevar__nei.html',1,'']]]
+  ['var_5fnei_52',['var_nei',['../namespacevar__nei.html',1,'']]]
 ];
