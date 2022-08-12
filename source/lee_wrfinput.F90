@@ -90,7 +90,7 @@ implicit none
     print *,"   IY in domain.nml",size(EMISS3D,3)
     if (size(EMISS3D,3).ne.dimlat .or.size(EMISS3d,1).ne.dimlon) then
       print *,"******  Dimensions do not mach review domain.nml file ****"
-      print *,"******  or eview wrfinput file selected               ****"
+      print *,"******  or review wrfinput file selected               ****"
       stop
     end if
 end subroutine lee_wrfinput
