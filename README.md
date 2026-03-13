@@ -128,7 +128,7 @@ The converter writes two NetCDF files compatible with WRF-Chem:
 | File | Time coverage | Description |
 |---|---|---|
 | `wrfchemi_00z_d01` | Hours 00–11 UTC | NetCDF emission file for the first half-day |
-| `wrfchemi_12z_d01` | Hours 12–24 UTC | NetCDF emission file for the second half-day |
+| `wrfchemi_12z_d01` | Hours 12–23 UTC | NetCDF emission file for the second half-day |
 
 Each output file contains:
 - **Dimensions and coordinate variables** copied from `wrfinput` (domain, map projection, latitude/longitude grids).
